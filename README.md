@@ -158,4 +158,71 @@ This project must remain under direct human supervision and must not be deployed
 
 By using this project, you agree to operate it ethically and take full responsibility for its behavior.
 
+✅ 4. Privacy Policy for Your Repository
+
+(Create a file named PRIVACY_POLICY.md)
+
+🔒 Privacy Policy – Telepathic Immortal Project
+
+This project runs locally in your web browser and does not transmit, upload, or store any user data.
+All microphone input is processed entirely on the user’s device.
+
+1. Data Collected
+
+The Software may access:
+
+Your device’s microphone (with your explicit permission)
+
+2. How Data Is Used
+
+Microphone audio is:
+
+Processed locally for visualization
+
+Converted to text locally (speech recognition)
+
+Never uploaded, transmitted, or stored by the Software
+
+The Software has no server, no cloud backend, and no remote analytics.
+
+3. No Recording or Storage
+
+The Software does not:
+
+Save audio recordings
+
+Save text transcripts
+
+Send any data over the internet
+
+Monitor activity outside the browser tab
+
+4. User Responsibility
+
+Users must comply with local laws regarding:
+
+Audio recording
+
+Consent requirements
+
+Privacy standards
+
+Data protection laws
+
+Washington State is a two-party consent state, meaning all parties must consent before any voice is captured or analyzed.
+
+5. Third-Party Services
+
+The Software may rely on browser-provided APIs such as:
+
+Web Speech API
+
+Web Audio API
+
+These APIs process audio locally within the browser environment and do not transmit it externally.
+
+
+
+
+
 
