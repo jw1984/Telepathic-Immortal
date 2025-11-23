@@ -57,3 +57,5 @@ Regulatory/Compliance reminder: “If you fly or use hardware in your jurisdicti
 Privacy warning: “If you record audio/video/data you are responsible for complying with applicable privacy laws and obtaining consent.”
 
 Scope disclaimer: “This is for educational/experimental use only. Not for commercial products, unless you obtain a separate license from the author.”
+
+If you handle exports (e.g., code that uses encryption or advanced hardware sensors), check U.S. export control laws. Although for typical hobby robotics this is unlikely a major issue, it may still be worth a note.
