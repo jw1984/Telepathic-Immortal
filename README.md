@@ -60,6 +60,11 @@ Scope disclaimer: “This is for educational/experimental use only. Not for comm
 
 If you handle exports (e.g., code that uses encryption or advanced hardware sensors), check U.S. export control laws. Although for typical hobby robotics this is unlikely a major issue, it may still be worth a note.
 
-Disclaimer:
-I am not a lawyer, and nothing in this project, its documentation, or any associated explanations should be interpreted as legal advice. All information is provided for general educational and informational purposes only. Laws vary by location and situation, and legal requirements may change over time.
-For guidance on your specific circumstances, you should consult a qualified attorney licensed in your jurisdiction.
+Legal Advice Disclaimer:
+The information contained in this repository—including code, documentation, descriptions, theories, or conceptual explanations—is provided for general informational and educational purposes only. Nothing within this project constitutes legal advice, professional guidance, or regulatory certification.
+
+I am not a lawyer, and no attorney–client relationship is created by viewing, downloading, or using any part of this project.
+Laws and regulations vary significantly between jurisdictions and may change over time.
+Users are solely responsible for ensuring compliance with all applicable local, state, federal, and international laws—including but not limited to regulations relating to robotics, unmanned aircraft, wireless communication, data collection, audio recording, privacy, artificial intelligence, safety, and product design.
+
+If you require legal advice or have specific legal questions about this project’s use, modification, or deployment, you must consult a qualified attorney licensed in your jurisdiction.
