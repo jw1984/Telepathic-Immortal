@@ -33,3 +33,5 @@ Always follow **laser, acoustic, and electrical safety guidelines** when buildin
 ---
 
 This software/hardware is provided as‐is, no warranty of any kind, the author is not liable for damages.
+
+Operating this robot is at your own risk; you must comply with local laws for airborne devices, robotics safety, etc.
