@@ -45,3 +45,7 @@ If the robot uses wireless transmissions, you may need to consider radio frequen
 If it uses sensors, audio/microphones, telepathy claims, or your code interacts with human data: consider privacy laws (e.g., audio recordings might implicate state consent laws).
 
 You might want to check any state‐specific laws around robotics, unattended flying objects, surveillance/recording devices, or “living being” claims.
+
+If your project captures audio, video, or other human-subject data (even if experimental), you should add a notice: user is responsible for ensuring recordings are legal, proper consent is obtained, etc.
+
+If you distribute or allow others to use the system, you should include a privacy/disclaimer section in your README.
