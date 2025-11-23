@@ -35,3 +35,11 @@ Always follow **laser, acoustic, and electrical safety guidelines** when buildin
 This software/hardware is provided as‐is, no warranty of any kind, the author is not liable for damages.
 
 Operating this robot is at your own risk; you must comply with local laws for airborne devices, robotics safety, etc.
+
+Regulatory / physical device compliance
+
+If the robot flies, you may need to consider U.S. aviation / drone rules from Federal Aviation Administration (FAA) or state/local regulations for unmanned aerial vehicles.
+
+If the robot uses wireless transmissions, you may need to consider radio frequency / FCC rules.
+
+If it uses sensors, audio/microphones, telepathy claims, or your code interacts with human data: consider privacy laws (e.g., audio recordings might implicate state consent laws).
