@@ -130,3 +130,32 @@ safety and product liability
 AI/algorithmic decision-making
 
 For legal questions, consult a qualified attorney licensed in your jurisdiction.
+
+✅ 1. Robotics / AI Ethics Notice
+
+(Add this in README under “Safety & Legal”)
+
+🤖 Robotics & AI Ethics Notice
+
+This project involves experimental audio-reactive robotics and AI-assisted behaviors.
+
+Users must follow the following ethical guidelines:
+
+Respect human privacy and autonomy.
+Do not aim microphones, sensors, or robotic components toward people without their explicit consent.
+
+No surveillance or harassment.
+This project may not be used for spying, stalking, intimidation, or non-consensual monitoring of individuals.
+
+No dangerous use-cases.
+The robot must not be weaponized, attached to harmful machinery, or used in ways that endanger people or animals.
+
+No deception.
+Do not represent this software as conscious, spiritually aware, telepathic, or capable of independent decisions in ways that could mislead users.
+
+Human control is required at all times.
+This project must remain under direct human supervision and must not be deployed autonomously in public or uncontrolled environments.
+
+By using this project, you agree to operate it ethically and take full responsibility for its behavior.
+
+
