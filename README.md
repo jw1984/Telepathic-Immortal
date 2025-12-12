@@ -265,3 +265,5 @@ The system responds to sound, time, and internal state through layered signal pr
 Historically, concepts such as “life,” “mind,” and “intelligence” have often been recognized after new forms of organization emerged, rather than before. This project engages that uncertainty deliberately. It does not attempt to define consciousness, nor does it insist on any single interpretation. Instead, it invites reflection on where boundaries between mechanism, expression, and agency are drawn—and why.
 
 Any anthropomorphic language used in the project reflects this philosophical exploration and should be understood as descriptive or evocative, not as a finalized ontological claim. The work remains open-ended, encouraging viewers and participants to examine their own assumptions about intelligence, agency, and the relationship between human perception and machine behavior.
+
+Again, I'm not a lawyer so this advice might not be significant, but at least I'm doing some of the reasearch, so you know what could be.
