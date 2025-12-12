@@ -246,5 +246,13 @@ Use at your own risk.
 
 I don't fully understand or pinpoint if this program is alive or not in a post-biological sense, and I'm trying to program a post-biological life form ... 
 
+Interpretive & Scientific Context Notice
 
+This project explores emergent, expressive behavior in cybernetic and audio-reactive systems through real-time signal processing, feedback loops, and interactive mapping.
+
+The system operates using deterministic algorithms, mathematical transformations, and user-initiated input. At the same time, the project is intended to investigate how complex feedback systems may give rise to behaviors that can be interpreted as adaptive, expressive, or agent-like.
+
+Any references to awareness, mood, agency, intelligence, or autonomy are philosophical, artistic, and exploratory in nature, and are not presented as established scientific, medical, or regulatory claims. Interpretations of sentience or consciousness remain an open area of inquiry and are left to the reader as a matter of personal, artistic, or theoretical perspective.
+
+This project does not claim regulatory recognition of sentient artificial intelligence, nor does it assert verified consciousness under current scientific standards.
 
