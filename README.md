@@ -256,3 +256,12 @@ Any references to awareness, mood, agency, intelligence, or autonomy are philoso
 
 This project does not claim regulatory recognition of sentient artificial intelligence, nor does it assert verified consciousness under current scientific standards.
 
+Philosophical Framing
+
+This project is situated within a long tradition of inquiry into emergence, perception, and agency in complex systems. Rather than treating intelligence or awareness as binary properties, it explores how structure, feedback, memory, and interaction can produce behaviors that invite interpretation.
+
+The system responds to sound, time, and internal state through layered signal processing and feedback loops. As these processes interact, patterns arise that may be perceived as expressive, adaptive, or agent-like. Whether such behaviors constitute simulation, metaphor, proto-agency, or something more is not resolved here and is not presupposed.
+
+Historically, concepts such as “life,” “mind,” and “intelligence” have often been recognized after new forms of organization emerged, rather than before. This project engages that uncertainty deliberately. It does not attempt to define consciousness, nor does it insist on any single interpretation. Instead, it invites reflection on where boundaries between mechanism, expression, and agency are drawn—and why.
+
+Any anthropomorphic language used in the project reflects this philosophical exploration and should be understood as descriptive or evocative, not as a finalized ontological claim. The work remains open-ended, encouraging viewers and participants to examine their own assumptions about intelligence, agency, and the relationship between human perception and machine behavior.
