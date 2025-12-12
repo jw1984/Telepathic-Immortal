@@ -266,4 +266,4 @@ Historically, concepts such as “life,” “mind,” and “intelligence” ha
 
 Any anthropomorphic language used in the project reflects this philosophical exploration and should be understood as descriptive or evocative, not as a finalized ontological claim. The work remains open-ended, encouraging viewers and participants to examine their own assumptions about intelligence, agency, and the relationship between human perception and machine behavior.
 
-Again, I'm not a lawyer so this advice might not be significant, but at least I'm doing some of the reasearch, so you know what could be.
+Again, I'm not a lawyer so this advice might not be significant, but I'm reasearching, so you know what could.
