@@ -242,7 +242,9 @@ Use at your own risk.
 - No network requests are made.
 - No analytics, cookies, or tracking are used.
 
+“Telepathic” is used metaphorically to describe audio-reactive behavior.
 
+I don't fully understand or pinpoint if this program is alive or not in a post-biological sense, and I'm trying to program a post-biological life form ... 
 
 
 
