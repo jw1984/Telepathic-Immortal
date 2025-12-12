@@ -221,6 +221,26 @@ Web Audio API
 
 These APIs process audio locally within the browser environment and do not transmit it externally.
 
+## Legal & Safety Notice
+
+This project is an experimental, artistic audio-visualizer and interaction system.
+
+- The software does NOT record, store, transmit, or analyze speech content.
+- All audio processing occurs locally on the user’s device.
+- Microphone access requires explicit user permission via the browser.
+- Users must obtain consent from all parties before using the microphone in shared environments.
+
+This project does not create, simulate, or imply sentience, consciousness, autonomy, or life.
+Any anthropomorphic language is artistic and metaphorical only.
+
+Use at your own risk.
+
+## Data Policy
+
+- No personal data is collected.
+- No audio is recorded or stored.
+- No network requests are made.
+- No analytics, cookies, or tracking are used.
 
 
 
