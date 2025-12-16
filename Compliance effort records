@@ -46,3 +46,29 @@ Nothing leaves the page
 
 COPPA works like this: Let’s say your child wants to use features on a site or download an app that collects their personal information. Before they can, you should get a plain language notice about what information the site will collect, how it will use it, and how you can provide your consent. ... https://consumer.ftc.gov/articles/protecting-your-childs-privacy-online   ...   How does COPPA work?  ...  What are my choices? ...  
 
+AI Dump and List of Possible Complainces Today (See Liability Waiver Discalimer for Mistakes, AI Isn't Resonsible for Mistakes, AI Isn't A Lawyer, Etc. ...)
+
+Expanded compliance research and documentation review for Telepathic Immortal project.
+
+Reviewed and aligned project disclosures with the following U.S. and international
+regulatory, standards, and best-practice frameworks (non-exhaustive, ongoing):
+
+— U.S. FEDERAL & STATE PRIVACY / CONSUMER PROTECTION —
+
+• Federal Trade Commission (FTC)
+  - Privacy & Data Security Guidance
+  - Truth in Advertising principles as applied to software disclosures
+  - Disclosures 101 (clear and conspicuous notice standards)
+  - Dark Patterns and consent clarity guidance
+  - Consumer representations regarding audio, microphone, and sensor access
+
+• Children’s Online Privacy Protection Act (COPPA)
+  - FTC consumer guidance and statutory interpretation
+  - Child-directed vs general audience classification
+  - No-collection, no-retention exemption analysis
+  - Real-time, local-only processing considerations
+  - Explicit children’s use disclosures without personal data collection
+
+State Audio Consent Model:
+  • All-Party (Two-Party) Consent: CA, CT, DE, FL, IL, MD, MA, MI, MT, NV, NH, OR (mixed), PA, VT, WA.
+  • One-Party Consent: AL, AK, AZ, AR, CO, GA, HI (limited), ID, IN, IA, KS, KY, LA, ME, MN, MS, MO, NE, NJ, NM, NY, NC, ND, OH, OK, RI, SC, SD, TN, TX, UT, VA, WV, WI, WY.
