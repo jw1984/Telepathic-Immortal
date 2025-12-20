@@ -117,6 +117,23 @@ For strongest posture, place it adjacent to your existing microphone notice.
 
 For true legal compliance, always refer to the actual state statute language and consult counsel for nuanced interpretations before asserting compliance in documentation.
 
+https://www.ftc.gov/business-guidance/resources/app-developers-start-security
+App Developers: Start with Security
+Different apps have different security needs
+The FTC expects app developers to adopt and maintain reasonable data security practices
+sdk s can cause thousands of oversights
+app store distribution causes stronger need for security
+libraries and add ons limit what developers publish in apps 
+mobile devices and internet connected devices can get stolen
+dedicate an employee responsible for security
+dont collect or keep data you dont need
+dont keep data longer than you need to
+understand differences between platforms
+understand platform specific security feature
+secure usernames and passwords
+
+
+
 
 
 
