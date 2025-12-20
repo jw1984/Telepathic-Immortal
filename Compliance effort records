@@ -88,3 +88,35 @@ honor your privacy policy
 healthcare data breach rules
 the ftc act
   more health data breach and privacy information and rules
+
+12 20 2025
+✅ Non-Recording Visualization Notice (Ready to Use)
+Non-Recording Visualization Disclosure
+
+This software uses your device’s microphone only to generate real-time visual output within your browser.
+
+No audio is recorded, saved, transmitted, shared, or retained in any form.
+All audio signals are processed ephemerally and locally for visualization purposes and are immediately discarded.
+
+This visualization:
+Does not create audio files or recordings
+Does not store frequency data or sound samples
+Does not transmit audio or derived data off the device
+Does not associate audio input with any user identity
+Granting microphone access enables live visual analysis only, not recording or surveillance.
+
+Where to Place It (Recommended)
+Use at least one of the following:
+Directly near the microphone consent UI
+Inside your Privacy / Compliance section
+In your Compliance Log as a standing notice
+In a privacy.html or COMPLIANCE.md
+For strongest posture, place it adjacent to your existing microphone notice.
+
+“This software does not function as a recording device and is not intended for monitoring, interception, or surveillance.”
+
+For true legal compliance, always refer to the actual state statute language and consult counsel for nuanced interpretations before asserting compliance in documentation.
+
+
+
+
