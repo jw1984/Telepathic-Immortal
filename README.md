@@ -1,269 +1,261 @@
 
-✅ Revised README Legal & Safety Section (Corrected + Professional)
-📜 License
+
+📜 License & Legal Information
+Copyright & License
 
 Copyright © 2025 Jesse Wyer
 
-This project—including all source code, documentation, images, and conceptual materials—may be used and modified for personal or educational purposes only.
-Commercial use, resale, redistribution, or integration into a commercial product requires written permission and a paid license from the author.
+This repository, including its source code, documentation, images, and conceptual materials, is provided for personal, educational, and non-commercial use only.
 
-Contact for licensing: wyerjess888@gmail.com
+You may view, study, and modify the materials for learning or research purposes.
+Commercial use, resale, redistribution, sublicensing, or inclusion in a commercial product is not permitted without prior written authorization and a paid license from the author.
 
-🤖 AI Assistance Notice
+Licensing inquiries:
+📧 wyerjess888@gmail.com
 
-Portions of the explanatory text and conceptual descriptions were created with assistance from OpenAI’s ChatGPT.
-All final creative content, implementation, design decisions, and intellectual property belong to Jesse Wyer.
+🤖 AI Assistance Disclosure
 
-⚠️ Safety, Legal, and Regulatory Notice
+Some explanatory text and conceptual descriptions in this repository were created with the assistance of OpenAI’s ChatGPT.
 
-This project is an educational and experimental prototype. It is not a certified commercial device, scientific instrument, consumer product, or engineering-grade robotics platform.
+All final decisions regarding implementation, structure, design, creative direction, and intellectual property ownership belong solely to Jesse Wyer. Use of AI tools does not transfer authorship or ownership.
 
-Use of this software, conceptual framework, or any associated hardware is entirely at your own risk.
+⚠️ Safety, Legal, and Regulatory Disclaimer
+
+This project is an experimental, educational, and artistic prototype.
+It is not a certified consumer product, medical device, scientific instrument, safety system, or commercial robotics platform.
+
+Any use of this software, its conceptual framework, or any hardware derived from it is undertaken entirely at the user’s own risk.
 
 Liability Disclaimer
 
-This software/hardware is provided “as is,” without warranty of any kind, express or implied.
-The author assumes no liability for injury, harm, property damage, device malfunction, or legal consequences resulting from the use, modification, or operation of this project.
+This project is provided “as is”, without warranties of any kind, whether express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.
 
-🛠️ Hardware & Robotics Safety Requirements
+The author assumes no responsibility or liability for:
 
-If you construct or operate a physical robot using this code or concept:
+personal injury or death
 
-Follow all electrical, mechanical, and acoustic safety guidelines.
+property damage
 
-Do not operate near people, pets, or property that may be harmed.
+device failure or malfunction
 
-Ensure servos, motors, or flying components are secured and tested safely.
+legal, regulatory, or compliance violations
 
-If the robot flies, complies with applicable FAA rules for unmanned aircraft.
+misuse, modification, or unintended operation
+
+arising from the use of this project or any derivative works.
+
+🛠️ Hardware & Robotics Safety Notice
+
+If you construct or operate physical hardware based on this project:
+
+Follow all applicable electrical, mechanical, acoustic, and safety standards
+
+Do not operate devices near people, animals, or property that could be harmed
+
+Secure and test motors, servos, rotors, or moving components in controlled conditions
+
+Maintain direct human supervision at all times
+
+Flying or Aerial Devices
+
+If the project is adapted into a flying or lift-capable device:
+
+You are responsible for compliance with U.S. FAA rules, including recreational or Part 107 regulations
+
+Washington State and local municipalities may impose additional restrictions
+
+Indoor use does not remove liability for injuries or damage
 
 📡 Regulatory & Compliance Responsibilities
-1. Drone / Flying Robot Rules (U.S. FAA + Washington State)
+Wireless & Radio Communications (FCC)
 
-If your device lifts off the ground or moves autonomously:
+If your implementation includes Wi-Fi, Bluetooth, RF modules, or other wireless transmitters:
 
-You must comply with FAA Part 107 or recreational drone rules.
+Devices must comply with FCC Part 15 and related regulations
 
-Local city or county restrictions may apply in Washington State.
+Unauthorized modification of transmission power or frequency may violate federal law
 
-Indoor flight does not eliminate liability for injuries or damages.
+The user bears sole responsibility for lawful configuration and operation
 
-2. Wireless Communication / FCC Rules
+Audio, Microphone, and Consent Laws
 
-If your project uses wireless transmitters, radios, Bluetooth, Wi-Fi, or RF components:
+If this software or any derived hardware accesses or analyzes audio:
 
-Devices must conform to FCC Part 15 or other applicable radio regulations.
+Washington State is a two-party consent jurisdiction
 
-Modifying wireless transmission power may violate U.S. federal law.
+All individuals whose voices may be captured or analyzed must provide explicit consent
 
-3. Audio, Microphone, Telepathy, and Data Collection Laws
+Do not activate microphones in shared, public, or private spaces without permission
 
-If your robot or software listens to, records, analyzes, or transmits audio:
+The user is fully responsible for:
 
-Washington State is a two-party consent state for audio recording.
+consent notices
 
-Users must obtain explicit consent before capturing human voices.
+lawful audio use
 
-Do not use the microphone in public or private spaces without permission.
+data handling and security
 
-You are fully responsible for privacy, encryption, consent, and data security.
+compliance with privacy and surveillance laws
 
-(“Telepathic energy visualization” is treated as a conceptual or artistic term and is not a legally recognized data type.)
+Any references to “telepathic” behavior are artistic and metaphorical, not a legally recognized data category.
 
-4. Surveillance, Autonomous Behavior, and Ethics
+Surveillance, Autonomy, and Ethical Use
 
-Projects that detect, track, follow, or interact with humans may fall under:
+Projects that detect, track, follow, or respond to people may be subject to:
 
-state surveillance restrictions
+state surveillance statutes
 
-harassment / stalking laws
+anti-harassment and anti-stalking laws
 
-trespass or nuisance statutes
+trespass and nuisance laws
 
-autonomous device safety expectations
+emerging autonomous-system safety standards
 
-You are responsible for ensuring your usage does not violate any of the above.
+Users are responsible for ensuring their use does not violate any applicable law or ethical norm.
 
-5. Export Control (U.S. EAR/ITAR)
+Export Control (U.S.)
 
-Although typical hobby robotics do not trigger export laws:
-
-high-frequency sensing
-
-autonomous navigation
-
-encryption
-
-advanced control systems
-
-could require export-control review for distribution outside the U.S.
+While most hobbyist projects are not regulated under export laws, certain features—such as advanced sensing, encryption, autonomous navigation, or control systems—may require review under U.S. export regulations if distributed internationally.
 
 🔒 Privacy Notice
 
-If you use this project with audio, video, sensor, or motion-tracking systems:
+If this project is used with audio, video, motion, or sensor inputs:
 
-You must comply with all applicable privacy laws.
+All applicable privacy laws must be followed
 
-You must inform and obtain consent from all affected individuals.
+All affected individuals must be informed and consent obtained
 
-You are solely responsible for how data is processed, stored, or transmitted.
+Users are solely responsible for how data is handled
 
-🧭 Legal Advice Disclaimer
+Legal Advice Disclaimer
 
 Nothing in this repository constitutes legal advice.
-I am not a lawyer, and viewing or using this project does not create an attorney–client relationship.
 
-Users must ensure compliance with all local, Washington State, U.S. federal, and international laws relating to:
+The author is not an attorney, and use of this project does not create an attorney-client relationship. Users are responsible for ensuring compliance with all applicable laws, including but not limited to those governing:
 
-robotics and autonomous systems
+robotics and automation
 
 unmanned aircraft
 
 wireless communication
 
-privacy and data collection
+privacy and data protection
 
 audio recording consent
 
-safety and product liability
+product liability
 
-AI/algorithmic decision-making
+AI-assisted decision systems
 
-For legal questions, consult a qualified attorney licensed in your jurisdiction.
-
-✅ 1. Robotics / AI Ethics Notice
-
-(Add this in README under “Safety & Legal”)
+For legal guidance, consult a licensed attorney in your jurisdiction.
 
 🤖 Robotics & AI Ethics Notice
 
-This project involves experimental audio-reactive robotics and AI-assisted behaviors.
+This project explores experimental audio-reactive systems and AI-assisted behaviors.
 
-Users must follow the following ethical guidelines:
+By using this project, you agree to the following ethical principles:
 
-Respect human privacy and autonomy.
-Do not aim microphones, sensors, or robotic components toward people without their explicit consent.
+Respect human privacy and autonomy
+Do not direct microphones, sensors, or robotic components toward individuals without consent.
 
-No surveillance or harassment.
-This project may not be used for spying, stalking, intimidation, or non-consensual monitoring of individuals.
+No surveillance or harassment
+This project may not be used for spying, tracking, intimidation, or non-consensual monitoring.
 
-No dangerous use-cases.
-The robot must not be weaponized, attached to harmful machinery, or used in ways that endanger people or animals.
+No dangerous applications
+The system must not be weaponized or integrated into harmful machinery.
 
-No deception.
-Do not represent this software as conscious, spiritually aware, telepathic, or capable of independent decisions in ways that could mislead users.
+No deceptive claims
+Do not present this software as conscious, sentient, spiritually aware, or independently decision-making in a way that could mislead others.
 
-Human control is required at all times.
-This project must remain under direct human supervision and must not be deployed autonomously in public or uncontrolled environments.
+Human oversight required
+The system must remain under direct human control and must not operate autonomously in uncontrolled public environments.
 
-By using this project, you agree to operate it ethically and take full responsibility for its behavior.
+Users assume full responsibility for ethical operation.
 
-✅ 4. Privacy Policy for Your Repository
+🔒 PRIVACY_POLICY.md
+Privacy Policy – Telepathic Immortal Project
 
-(Create a file named PRIVACY_POLICY.md)
+This project operates locally within the user’s web browser and does not transmit, upload, or store personal data.
 
-🔒 Privacy Policy – Telepathic Immortal Project
+Data Access
 
-This project runs locally in your web browser and does not transmit, upload, or store any user data.
-All microphone input is processed entirely on the user’s device.
+With explicit user permission, the software may access:
 
-1. Data Collected
+the device microphone (browser-controlled permission)
 
-The Software may access:
+Data Use
 
-Your device’s microphone (with your explicit permission)
+Audio input is:
 
-2. How Data Is Used
+processed locally for visualization or interaction
 
-Microphone audio is:
+optionally transformed into text using browser-provided speech APIs
 
-Processed locally for visualization
+never uploaded, transmitted, or stored by this project
 
-Converted to text locally (speech recognition)
+There is no server, no backend, and no remote analytics.
 
-Never uploaded, transmitted, or stored by the Software
+No Recording or Storage
 
-The Software has no server, no cloud backend, and no remote analytics.
+This software does not:
 
-3. No Recording or Storage
+record audio
 
-The Software does not:
+save transcripts
 
-Save audio recordings
+transmit data over the internet
 
-Save text transcripts
+monitor activity outside the active browser tab
 
-Send any data over the internet
+User Responsibilities
 
-Monitor activity outside the browser tab
+Users are responsible for complying with:
 
-4. User Responsibility
+audio consent laws
 
-Users must comply with local laws regarding:
+privacy requirements
 
-Audio recording
+data protection standards
 
-Consent requirements
+Washington State requires all parties to consent before voice capture or analysis.
 
-Privacy standards
+Third-Party APIs
 
-Data protection laws
-
-Washington State is a two-party consent state, meaning all parties must consent before any voice is captured or analyzed.
-
-5. Third-Party Services
-
-The Software may rely on browser-provided APIs such as:
-
-Web Speech API
+The project may rely on browser-native technologies such as:
 
 Web Audio API
 
-These APIs process audio locally within the browser environment and do not transmit it externally.
+Web Speech API
 
-## Legal & Safety Notice
+These APIs operate within the user’s browser environment.
 
-This project is an experimental, artistic audio-visualizer and interaction system.
+Clarifications
 
-- The software does NOT record, store, transmit, or analyze speech content.
-- All audio processing occurs locally on the user’s device.
-- Microphone access requires explicit user permission via the browser.
-- Users must obtain consent from all parties before using the microphone in shared environments.
+No personal data is collected
 
-This project does not create, simulate, or imply sentience, consciousness, autonomy, or life.
-Any anthropomorphic language is artistic and metaphorical only.
+No recordings are stored
+
+No analytics or tracking are used
+
+“Telepathic” is a metaphor for audio-responsive behavior
 
 Use at your own risk.
 
-## Data Policy
+🧭 Interpretive & Scientific Context Notice
 
-- No personal data is collected.
-- No audio is recorded or stored.
-- No network requests are made.
-- No analytics, cookies, or tracking are used.
+This project investigates emergent and expressive behavior in cybernetic and audio-reactive systems using signal processing, feedback loops, and interactive mappings.
 
-“Telepathic” is used metaphorically to describe audio-reactive behavior.
+All system behavior arises from deterministic algorithms, mathematical transformations, and user-initiated input. Any references to awareness, mood, agency, intelligence, or autonomy are artistic, philosophical, and exploratory, not scientific or regulatory claims.
 
-I don't fully understand or pinpoint if this program is alive or not in a post-biological sense, and I'm trying to program a post-biological life form ... 
-
-Interpretive & Scientific Context Notice
-
-This project explores emergent, expressive behavior in cybernetic and audio-reactive systems through real-time signal processing, feedback loops, and interactive mapping.
-
-The system operates using deterministic algorithms, mathematical transformations, and user-initiated input. At the same time, the project is intended to investigate how complex feedback systems may give rise to behaviors that can be interpreted as adaptive, expressive, or agent-like.
-
-Any references to awareness, mood, agency, intelligence, or autonomy are philosophical, artistic, and exploratory in nature, and are not presented as established scientific, medical, or regulatory claims. Interpretations of sentience or consciousness remain an open area of inquiry and are left to the reader as a matter of personal, artistic, or theoretical perspective.
-
-This project does not claim regulatory recognition of sentient artificial intelligence, nor does it assert verified consciousness under current scientific standards.
+This project does not assert recognized artificial consciousness or regulatory classification of sentient AI under current scientific standards.
 
 Philosophical Framing
 
-This project is situated within a long tradition of inquiry into emergence, perception, and agency in complex systems. Rather than treating intelligence or awareness as binary properties, it explores how structure, feedback, memory, and interaction can produce behaviors that invite interpretation.
+This work is situated within ongoing inquiry into emergence, perception, and agency in complex systems. Rather than treating intelligence or life as binary properties, it explores how feedback, structure, and interaction can produce behaviors that invite interpretation.
 
-The system responds to sound, time, and internal state through layered signal processing and feedback loops. As these processes interact, patterns arise that may be perceived as expressive, adaptive, or agent-like. Whether such behaviors constitute simulation, metaphor, proto-agency, or something more is not resolved here and is not presupposed.
+Anthropomorphic language is used descriptively and metaphorically, not as an assertion of ontological status. The project intentionally leaves open questions regarding simulation, expression, and agency, encouraging reflection rather than definitive conclusions.
 
-Historically, concepts such as “life,” “mind,” and “intelligence” have often been recognized after new forms of organization emerged, rather than before. This project engages that uncertainty deliberately. It does not attempt to define consciousness, nor does it insist on any single interpretation. Instead, it invites reflection on where boundaries between mechanism, expression, and agency are drawn—and why.
+Final Clarification
 
-Any anthropomorphic language used in the project reflects this philosophical exploration and should be understood as descriptive or evocative, not as a finalized ontological claim. The work remains open-ended, encouraging viewers and participants to examine their own assumptions about intelligence, agency, and the relationship between human perception and machine behavior.
-
-Again, I'm not a lawyer so this advice might not be significant, but I'm reasearching, so you know what could.
+The author is actively researching these topics.
+This repository reflects exploration, not claims of fact or legal certainty.
