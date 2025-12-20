@@ -1,46 +1,41 @@
 
 
-
 12/12/2025
+Compliance & Security Research (Initial Review)
 
-NIST research (starting point)
+Began structured review of publicly available compliance, security, and best-practice materials relevant to software projects that interact with user devices and system resources.
 
-Began reviewing the NIST knowledge base as part of ongoing compliance and security documentation for the project.
+This review focused on understanding baseline expectations for documentation clarity, system behavior transparency, and responsible handling of technical features that could impact user trust or safety.
 
 12/15/2025
+Compliance Research (Emerging Technology & Systems Context)
 
-NIST research (new technology + manufacturing profile)
+Continued compliance review with emphasis on how modern and experimental software systems are expected to describe their behavior, especially when operating in technical or specialized environments.
 
-Continued NIST knowledge base review using the search term “new technology.”
+Reviewed example use cases and implementation patterns illustrating how low-impact systems are documented, including how system scope, limitations, and operational boundaries are communicated clearly to users.
 
-Read and noted key concepts from:
-
-Cybersecurity Framework (CSF) Manufacturing Profile
-
-Low Impact Level Example materials
-
-Implementation resources, including:
-
-Volume 3 — Discrete-based Manufacturing System Use Case
+Key takeaways were noted for later integration into project documentation and disclosures.
 
 12/16/2025
+Children’s Privacy & Disclosure Review
 
-FTC / COPPA research + children’s privacy disclosures
+Reviewed general best-practice expectations regarding children’s privacy, age-related disclosures, and responsible handling of interactive software features.
 
-Reviewed FTC consumer education content related to privacy policy expectations and special protections for children online.
+Focused on how software intended for a general audience should clearly communicate whether it is directed toward children and what data behaviors occur (or do not occur).
 
-✅ COPPA Notice (Original / Ready to Use)
+✅ Children’s Privacy Notice (Original / Ready to Use)
 
-Children’s Privacy (COPPA Notice)
-This software is built for a general audience and is not specifically designed for children under 13.
+Children’s Privacy Notice
 
-Telepathic Wind Robot — Cyber-Mystic Analyzer does not intentionally collect, store, transmit, or process personal information from children under 13 (as defined by COPPA).
+This software is intended for a general audience and is not specifically designed for children under the age of 13.
+
+The Telepathic Wind Robot — Cyber-Mystic Analyzer does not intentionally collect, store, transmit, or process personal information from children under 13.
 
 Current behavior of the software:
 
-No account creation required
+No account creation
 
-No requests for name, email, or personal identifiers
+No requests for names, email addresses, or personal identifiers
 
 Microphone input is used only for live, local, in-browser visualization
 
@@ -49,103 +44,91 @@ No audio is recorded, saved, uploaded, or shared
 Audio signals exist only temporarily in memory and are discarded immediately
 
 If you are under 13:
-Do not enable the microphone or use microphone-based features.
+Do not enable microphone access or use microphone-based features.
 
-If you are a parent/guardian and believe a child used this software in a way that could involve personal information:
-Stop using the software immediately. The current design does not retain user data.
+If you are a parent or guardian:
+If you believe a child has used this software in a way that could involve personal information, discontinue use. The current design does not retain or store user data.
 
-General-purpose statement:
-This software is intended for experimentation and visualization and is not a recording or monitoring tool.
+General statement:
+This software is intended for experimentation and visualization only and does not function as a recording, monitoring, or data-collection tool.
 
-⚠️ Technical warning (COPPA trigger list)
+⚠️ Technical Change Awareness (Children’s Privacy Trigger List)
 
-If the project later adds any of the following, COPPA review and disclosures must be revisited:
+If future versions introduce any of the following, privacy review and disclosures must be revisited:
 
-Saving audio (files or recordings)
+Saving or exporting audio
 
-Storing frequency/analysis data tied to sessions or identities
+Storing analysis data tied to sessions or users
 
-User accounts, profiles, or logins
+User accounts, profiles, or authentication
 
-Analytics tied to IP/device identifiers
+Analytics tied to device or network identifiers
 
 Cloud logging or remote storage
 
-“Share” / export / social publishing features that transmit user-related data
+Sharing, publishing, or export features that transmit user-related data
 
 Current safety posture:
 
-Processing is local-only
+Processing is local only
 
 Data is not persisted
 
 Nothing is transmitted off-device
 
-“AI dump” compliance expansion (journal style, original phrasing)
+Compliance Expansion Notes (Journal Style)
 
-Expanded compliance research notes for the Telepathic Immortal project, including privacy, disclosures, and best-practice alignment (non-exhaustive, ongoing).
+Expanded compliance notes for the Telepathic Immortal project, documenting ongoing alignment with privacy, disclosure, and transparency expectations. This log is non-exhaustive and reflects continuing research.
 
-Frameworks / areas reviewed and mapped into project documentation:
+Areas Reviewed and Mapped Into Documentation
 
-— U.S. Federal Privacy & Consumer Protection —
+Privacy & Consumer Transparency
 
-Federal Trade Commission (FTC) concepts reviewed:
+Clear description of what the software does and does not do
 
-Privacy and data security guidance
+Avoidance of misleading or ambiguous claims
 
-“Truth in advertising” as it applies to software claims and user-facing statements
+Straightforward explanation of microphone and audio behavior
 
-Clear-and-conspicuous disclosure expectations
+Clear distinction between visualization, processing, and recording
 
-Consent clarity and avoidance of deceptive UI practices (dark-pattern risk)
+Avoidance of interface patterns that could confuse consent
 
-Accuracy in describing microphone/audio behavior (recording vs. visualization vs. transmission)
+Data Handling Principles
 
-COPPA (Children’s Online Privacy Protection Act) considerations reviewed:
+Real-time processing versus storage or retention
 
-General-audience vs. child-directed positioning
+Avoidance of identity-linked data
 
-What “collection” means and what counts as personal information
+No session tracking or analytics
 
-Real-time processing vs. storage/retention concerns
+Matching written disclosures to actual technical behavior
 
-Ensuring disclosures match actual technical behavior
+Audio Consent Considerations
 
-Avoiding identity-linked audio or analytics
+Reviewed general models for audio consent across jurisdictions, noting that consent rules vary by location and context.
 
-State audio consent model (working reference list; verify statutes before making formal legal claims):
+This list is maintained as a working reference only and should be verified against current law before making formal legal claims.
 
-All-party / two-party consent states (often cited): CA, CT, DE, FL, IL, MD, MA, MI, MT, NV, NH, OR (mixed), PA, VT, WA
-
-One-party consent states (often cited): AL, AK, AZ, AR, CO, GA, HI (limited), ID, IN, IA, KS, KY, LA, ME, MN, MS, MO, NE, NJ, NM, NY, NC, ND, OH, OK, RI, SC, SD, TN, TX, UT, VA, WV, WI, WY
-
-(Note: this list is a working summary; legal requirements vary by context and can change.)
+(Consent requirements vary by jurisdiction and may change over time.)
 
 12/18/2025
+Disclosure Integrity Review
 
-Reviewed FTC guidance emphasizing that organizations must follow the privacy promises they make to users (i.e., “say what you do, and do what you say”).
+Reviewed principles emphasizing that software creators must follow the promises they make to users.
 
-Logged key principle: privacy statements become commitments—misstatements can create enforcement risk.
+Logged key principle:
 
-Reviewed HBN Rule overview and noted relevance primarily to health apps / health data and certain related services.
+Public statements about privacy and behavior create obligations. Inaccurate or overstated claims increase risk.
 
-Captured the general takeaway: breach-related duties depend on the type of data and whether it qualifies as covered health information under FTC scope.
-
-Reviewed FTC guidance reinforcing:
-
-honoring privacy policies and user disclosures
-
-aligning representations with actual practices
-
-understanding FTC Act enforcement themes (deception/unfairness)
-
-heightened sensitivity around health-related data and breach-related expectations
+Additional notes captured regarding heightened sensitivity around health-related data, breach obligations, and how expectations differ depending on data type and use context.
 
 12/20/2025
 ✅ Non-Recording Visualization Disclosure (Original / Ready to Use)
 
 Non-Recording Visualization Notice
-This software uses your device microphone only to generate real-time visual output inside your browser.
+
+This software uses your device’s microphone only to generate real-time visual output within your browser.
 
 No audio is recorded
 
@@ -155,50 +138,49 @@ No audio or derived data is transmitted off-device
 
 No sharing, uploading, or retention occurs
 
-Audio signals are processed temporarily in-memory for visualization and then discarded immediately
+Audio signals are processed temporarily in memory for visualization and then discarded immediately.
 
 This visualization does not:
 
 create recordings or audio files
 
-store frequency “snapshots” linked to a user or session
+store frequency or analysis snapshots linked to a user or session
 
 send audio to servers or third parties
 
-associate microphone input with identity
+associate microphone input with personal identity
 
-Granting microphone permission enables live visual analysis only, not surveillance or monitoring.
+Granting microphone permission enables live visual analysis only. It does not enable surveillance or monitoring.
 
-Recommended placement locations:
+Suggested placement locations:
 
-near the microphone permission UI
+Near microphone permission prompts
 
-inside a Privacy / Compliance section
+In a Privacy or Compliance section
 
-in your compliance log as a standing disclosure
+In a compliance log
 
-in a privacy.html page or COMPLIANCE.md
+In a privacy.html, PRIVACY_POLICY.md, or COMPLIANCE.md file
 
 Suggested additional sentence:
+
 “This software is not intended to intercept, monitor, or surveil audio and does not function as a recording tool.”
 
-Compliance note:
-Always confirm final claims against actual statute language and consult counsel for high-stakes interpretations.
+Ongoing Compliance Takeaways Logged
 
-Key takeaways logged:
+Security expectations scale with application scope and distribution
 
-Security expectations vary by app, but “reasonable security” is the baseline
+Third-party libraries can introduce privacy or security risk
 
-Third-party SDKs/libraries can introduce privacy and security gaps
+Public distribution increases scrutiny of disclosures
 
-App distribution increases scrutiny for privacy/security representations
+Devices may be lost or shared; minimize retained data
 
-Devices can be lost/stolen; secure storage and minimize retained data
+Assign clear ownership for security and compliance tasks
 
-Assign ownership for security tasks (even if it’s just you)
+Collect only what is necessary and retain it briefly
 
-Collect only what you need; retain only as long as needed
+Understand platform-level permissions and safeguards
 
-Understand platform differences and built-in security features
+Protect any authentication mechanisms if added in the future
 
-Protect usernames/passwords and any authentication mechanisms
