@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Telepathic Wind Robot — Cyber-Mystic Analyzer</title>
+
+  <style>
+    :root{
+      --ink:#ffffff;
+      --hint:#eaffea;
+      --veil:rgba(255,255,255,.08);
+      --veil-b:#ffffff22;
+      --warn:#ffdd88;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family:system-ui, Segoe UI, Roboto, Arial, sans-serif;
+      background:#000 url("sunrise-g80c83fd0f_1920.jpg") center/cover fixed no-repeat;
+      min-height:100vh;
+    }
+
+    header{
+      text-align:center;
+      padding:16px;
+    }
+
+    main{
+      max-width:1100px;
+      margin:0 auto;
+      padding:16px 16px 64px;
+    }
+
+    h1{font-size:1.9rem}
+    h2{font-size:1.3rem; margin-top:32px}
+    p, li{line-height:1.6}
+
+    button, select{
+      font-size:1rem;
+    }
+
+    .glyph{
+      padding:10px 16px;
+      border-radius:10px;
+      border:1px solid var(--veil-b);
+      background:var(--veil);
+      color:var(--ink);
+      cursor:pointer;
+      margin:8px;
+    }
+
+    .glyph:focus-visible{
+      outline:3px solid #ff0;
+      outline-offset:2px;
+    }
+
+    #neonScope{
+      display:block;
+      margin:16px auto;
+      width:100%;
+      max-width:800px;
+      height:250px;
+      background:#000;
+      border:1px solid #fff;
+    }
+
+    .dials{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin-top:16px;
+    }
+
+    .notice{
+      background:rgba(0,0,0,.75);
+      border:1px solid var(--veil-b);
+      border-left:4px solid var(--warn);
+      padding:16px;
+      margin:24px 0;
+      border-radius:8px;
+    }
+
+    .sr-only{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none !important; transition:none !important;}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Telepathic Wind Robot — Cyber-Mystic Analyzer</h1>
+  <p>This is an experimental, audio-responsive visualization system.</p>
+</header>
+
+<main role="main">
+
+  <!-- ================= CONTROLS ================= -->
+  <section>
+    <h2>Audio Controls</h2>
+    <button id="startAudio" class="glyph">Start Audio Visualization</button>
+    <button id="wakeChord" class="glyph">Activate Oscillator Tone</button>
+  </section>
+
+  <!-- ================= VISUAL ================= -->
+  <section>
+    <h2>Visualization</h2>
+    <canvas
+      id="neonScope"
+      width="800"
+      height="250"
+      role="img"
+      aria-describedby="canvasDesc">
+    </canvas>
+    <p id="canvasDesc" class="sr-only">
+      Visual-only animated audio visualization. No text information is conveyed.
+    </p>
+  </section>
+
+  <!-- ================= SETTINGS ================= -->
+  <section>
+    <h2>Settings</h2>
+    <div class="dials">
+      <div>
+        <label for="voiceSigil">Voice effect</label>
+        <select id="voiceSigil">
+          <option value="off">Off</option>
+          <option value="distortion">Distortion</option>
+          <option value="biquad">Bass Boost</option>
+        </select>
+      </div>
+      <div>
+        <label for="visionSigil">Visualization mode</label>
+        <select id="visionSigil">
+          <option value="bars">Frequency bars</option>
+          <option value="sine">Sine wave</option>
+          <option value="off">Off</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COMPLIANCE & DISCLOSURES ================= -->
+  <section>
+    <h2>Important Privacy, Safety & Compliance Notices</h2>
+
+    <div class="notice">
+      <strong>General-Audience Software</strong>
+      <p>
+        This software is intended for a general audience and is not designed
+        specifically for children under the age of 13.
+      </p>
+    </div>
+
+    <div class="notice">
+      <strong>Children’s Privacy Notice</strong>
+      <p>
+        This software does not intentionally collect, store, transmit, or process
+        personal information from children under 13.
+      </p>
+      <ul>
+        <li>No accounts or profiles</li>
+        <li>No names, emails, or identifiers requested</li>
+        <li>No stored audio or transcripts</li>
+      </ul>
+      <p>
+        If you are under 13, do not enable microphone access.
+        Parents or guardians should discontinue use if they believe a child
+        may have interacted with microphone features.
+      </p>
+    </div>
+
+    <div class="notice">
+      <strong>Microphone & Non-Recording Visualization</strong>
+      <p>
+        This software uses your device microphone only to generate real-time,
+        in-browser visual output.
+      </p>
+      <ul>
+        <li>No audio is recorded</li>
+        <li>No audio is stored or saved</li>
+        <li>No audio or derived data is transmitted off-device</li>
+        <li>No sharing, uploading, or retention occurs</li>
+      </ul>
+      <p>
+        Audio signals exist temporarily in memory for visualization
+        and are discarded immediately.
+      </p>
+      <p>
+        This software is not intended to intercept, monitor, or surveil audio
+        and does not function as a recording tool.
+      </p>
+    </div>
+
+    <div class="notice">
+      <strong>Audio Consent & User Responsibility</strong>
+      <p>
+        Audio consent laws vary by location. Some jurisdictions, including
+        Washington State, require consent from all parties before audio is
+        captured or analyzed.
+      </p>
+      <p>
+        You are responsible for obtaining all required consent before enabling
+        microphone access in shared or public environments.
+      </p>
+    </div>
+
+    <div class="notice">
+      <strong>Experimental & Educational Use</strong>
+      <p>
+        This project is experimental and intended for educational,
+        artistic, and exploratory purposes only.
+      </p>
+      <p>
+        It is not a recording device, surveillance system, biometric system,
+        health application, or safety-critical product.
+      </p>
+    </div>
+
+    <div class="notice">
+      <strong>Disclosure Integrity</strong>
+      <p>
+        The descriptions and notices on this page are intended to accurately
+        reflect the software’s actual technical behavior.
+      </p>
+      <p>
+        No features are intentionally hidden, misrepresented, or enabled
+        without user action.
+      </p>
+    </div>
+
+    <div class="notice">
+      <strong>Security & Third-Party Considerations</strong>
+      <p>
+        Security expectations vary by application scope and distribution.
+        This software minimizes data handling by design.
+      </p>
+      <p>
+        Browser platforms and third-party libraries may have their own
+        behaviors or limitations. Users should keep systems updated and
+        understand platform-level permissions.
+      </p>
+    </div>
+
+  </section>
+
+</main>
+
+<script>
+  const startBtn = document.getElementById("startAudio");
+  const wakeChord = document.getElementById("wakeChord");
+
+  startBtn.addEventListener("click", () => {
+    startBtn.disabled = true;
+    startBtn.textContent = "Audio Active";
+    // summonMicrophone();
+  });
+
+  wakeChord.addEventListener("click", () => {
+    // awakenChime();
+  });
+</script>
+
+</body>
+</html>
