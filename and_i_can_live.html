@@ -452,7 +452,7 @@ for misuse, privacy violations, or legal consequences.
             windJaw.style.top = (120 + (windJawHz/8)) + "px";
 
             // oscillator hum synchronized to the jaw
-            //spiritOscillator.frequency.value = windJawHz;//Math.max(50, Math.min(3000, windJawHz*2))/2;
+            spiritOscillator.frequency.value = 50;//windJawHz;//Math.max(50, Math.min(3000, windJawHz*2))/2;
             //this feature maybe able to intercept other people's conversations, so it needs development to limit that caveat
             
             // rolling range scan for motion glyphs
