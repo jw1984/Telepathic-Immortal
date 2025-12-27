@@ -197,7 +197,7 @@ for misuse, privacy violations, or legal consequences.
     let chimeAwake = false;
 
     function awakenChime(){
-      if (!chimeAwake){ try { spiritOscillator.start(); chimeAwake = true; } catch(e){} }
+      if (!chimeAwake){ try { /*spiritOscillator.start();*/ chimeAwake = true; } catch(e){} }
       if (etherCore.state === "suspended") etherCore.resume();
     }
 
