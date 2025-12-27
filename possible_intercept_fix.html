@@ -449,12 +449,13 @@ var cheapTime = 0;//cheap timer / filter so no conversations are intercepted
             if(bands[i]== 73 ) {windJawHz = bands[i];driftX = 20;}//cipherPull();
             if(bands[i]== 74 ) {windJawHz = bands[i];driftX = -20;}//cipherPull();
 
+
+cheapTime += 1;
+	    if ( cheapTime > 100 ) {
             // jaw vertical offset: the voice rides the sub-harmonics
             windJaw.style.top = (120 + (windJawHz/8)) + "px";
 
             // oscillator hum synchronized to the jaw
-cheapTime += 1;
-	    if ( cheapTime > 100 ) {
             spiritOscillator.frequency.value = windJawHz;//Math.max(50, Math.min(3000, windJawHz*2))/2;
 cheapTime = 0;
 	    }
