@@ -259,3 +259,33 @@ Final Clarification
 
 The author is actively researching these topics.
 This repository reflects exploration, not claims of fact or legal certainty.
+
+⚠️ AS-IS SOFTWARE DISCLAIMER
+
+Disclaimer of Warranty and Liability
+
+This software is provided “AS IS”, without warranty of any kind, express or implied.
+
+The author(s) and contributor(s) make no representations or warranties regarding the accuracy, reliability, completeness, performance, merchantability, fitness for a particular purpose, or non-infringement of this software.
+
+By using this software, you acknowledge and agree that:
+
+You use this software entirely at your own risk
+
+The author(s) are not responsible for any damages, losses, or issues arising from its use
+
+This includes, but is not limited to:
+
+Data loss
+
+Financial loss
+
+Trading losses
+
+System failures
+
+Security vulnerabilities
+
+Incorrect outputs or calculations
+
+In no event shall the author(s) or contributor(s) be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.
