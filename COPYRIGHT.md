@@ -39,5 +39,4 @@ Commercial or narrative licensing inquiries must be directed to:
 **Jesse Wyer**  
 (licensing terms, fees, and scope determined on a case-by-case basis)
 
-Unauthorized use of protected narrative content constitutes copyright infringement
-under U.S. federal law (17 U.S.C. §102 et seq.).
+
