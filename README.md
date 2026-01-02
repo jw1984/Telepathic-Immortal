@@ -1,4 +1,11 @@
 
+### Legal & Safety Disclaimer
+
+This repository is provided for informational and educational purposes only. I am not a lawyer, and nothing in this project should be interpreted as legal, medical, or professional advice.
+
+Users are responsible for ensuring they comply with all applicable laws and regulations in their jurisdiction, including privacy and consent requirements. For legal interpretation or advice, consult a qualified attorney.
+
+Any references to regulatory frameworks (e.g., FCC, privacy statutes) are informational only and do not imply certification or legal guarantee.
 
 📜 License & Legal Information
 Copyright & License
