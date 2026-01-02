@@ -1,5 +1,5 @@
 
-### Legal & Safety Disclaimer
+
 
 This repository is provided for informational and educational purposes only. I am not a lawyer, and nothing in this project should be interpreted as legal, medical, or professional advice.
 
