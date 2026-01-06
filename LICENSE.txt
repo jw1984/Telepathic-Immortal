@@ -21,3 +21,5 @@ Commercial licensing inquiries:
 
 Unauthorized commercial use of this work constitutes copyright
 infringement and may be subject to legal action.
+
+And, the author always wants free to make his own projects using this github project.
