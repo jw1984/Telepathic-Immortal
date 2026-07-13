@@ -100,5 +100,31 @@ returning users from their voices, perform voice authentication, or store
 voice templates. Microphone-derived frequency values are used only for
 temporary game control and visualization.
 
+## Children’s Privacy
+
+Telepathic-Immortal is an experimental, general-audience art and game project. It is not designed, marketed, or directed specifically to children under 13.
+
+The application does not intentionally request a user’s:
+
+* Name
+* Age or date of birth
+* Email address
+* Mailing address
+* Account information
+* Photograph
+* Audio upload
+* Other user-submitted personal information
+
+The microphone-enabled pages are designed to process live microphone input temporarily within the user’s browser for game control and visual effects. They are not designed to create audio recordings, retain microphone audio, upload microphone audio, identify speakers, or create voiceprints.
+
+Children under 13 should not activate a microphone-enabled feature without the supervision and permission of a parent or legal guardian. The microphone should not be activated where another person’s private conversation could be captured unless everyone involved has agreed.
+
+This project currently does not include user accounts, advertising, behavioral tracking, user uploads, stored microphone recordings, voice authentication, or age and birth-date collection.
+
+This section describes the project’s intended design and data practices. It is not a claim, certification, or guarantee that the project complies with every requirement of the Children’s Online Privacy Protection Act or any other law.
+
+The project’s privacy and legal requirements must be reviewed again before adding features such as accounts, advertising, analytics, persistent identifiers, user uploads, stored recordings, cloud audio processing, child-directed marketing, or collection of personal information.
+
+
 Do not modify this project to identify or authenticate individuals from
 their voices without obtaining a separate legal and privacy review.
