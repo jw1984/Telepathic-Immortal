@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="theme-color" content="#000000"/>
+  <meta name="color-scheme" content="dark"/>
+  <title>Telepathic Wind Robot — Possible Intercept Fix</title>
+  <style>
+    :root{
+      --ink:#fff;
+      --hint:#efe;
+      --veil:rgba(255,255,255,.09);
+      --veil-b:rgba(255,255,255,.28);
+      --panel:rgba(0,0,0,.82);
+      --ok:#8cff9b;
+      --warn:#ffe58a;
+      --error:#ff9b9b;
+      --focus:#7ee8ff;
+    }
+
+    *{box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family:system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+      background:#000 url("sunrise-g80c83fd0f_1920.jpg") center/cover fixed no-repeat;
+      min-height:100vh;
+      line-height:1.5;
+    }
+
+    button, select, input{font:inherit}
+
+    button:focus-visible,
+    select:focus-visible,
+    input:focus-visible{
+      outline:3px solid var(--focus);
+      outline-offset:3px;
+    }
+
+    .frame{
+      position:relative;
+      max-width:1100px;
+      margin:0 auto;
+      padding:16px 16px 64px;
+      isolation:isolate;
+    }
+
+    header,
+    main,
+    footer{
+      position:relative;
+      z-index:3;
+    }
+
+    header{
+      text-align:center;
+      padding-top:8px;
+    }
+
+    h1{
+      margin:.2rem 0 .4rem;
+      text-shadow:0 2px 8px #000;
+    }
+
+    .subtitle{
+      max-width:780px;
+      margin:0 auto 12px;
+      color:var(--hint);
+      text-shadow:0 1px 5px #000;
+    }
+
+    .panel{
+      max-width:900px;
+      margin:14px auto;
+      padding:14px 16px;
+      border:1px solid var(--veil-b);
+      border-radius:12px;
+      background:var(--panel);
+      box-shadow:0 8px 24px rgba(0,0,0,.45);
+    }
+
+    .panel h2{
+      margin:0 0 8px;
+      font-size:1.12rem;
+    }
+
+    .panel p{
+      margin:.45rem 0;
+    }
+
+    .consent-row{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      margin-top:12px;
+      padding:10px;
+      border:1px solid rgba(255,229,138,.45);
+      border-radius:8px;
+      background:rgba(80,65,0,.36);
+    }
+
+    .consent-row input{
+      width:1.25rem;
+      height:1.25rem;
+      margin-top:.15rem;
+      flex:0 0 auto;
+    }
+
+    .controls{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+      max-width:900px;
+      margin:12px auto;
+    }
+
+    .glyph{
+      display:inline-block;
+      min-height:44px;
+      padding:10px 16px;
+      border-radius:10px;
+      border:1px solid var(--veil-b);
+      background:rgba(0,0,0,.78);
+      color:var(--ink);
+      cursor:pointer;
+    }
+
+    .glyph:hover:not(:disabled){background:rgba(255,255,255,.17)}
+
+    .glyph:disabled{
+      cursor:not-allowed;
+      opacity:.48;
+    }
+
+    .primary{
+      border-color:rgba(140,255,155,.78);
+      box-shadow:inset 0 0 0 1px rgba(140,255,155,.18);
+    }
+
+    .danger{border-color:rgba(255,155,155,.78)}
+
+    .status{
+      max-width:900px;
+      min-height:48px;
+      margin:10px auto;
+      padding:11px 14px;
+      border:1px solid var(--veil-b);
+      border-radius:10px;
+      background:rgba(0,0,0,.9);
+      text-align:center;
+      font-weight:700;
+    }
+
+    .status[data-state="active"]{color:var(--ok); border-color:var(--ok)}
+    .status[data-state="pending"]{color:var(--warn); border-color:var(--warn)}
+    .status[data-state="error"]{color:var(--error); border-color:var(--error)}
+    .status[data-state="inactive"]{color:#ddd}
+
+    #neonScope{
+      position:relative;
+      z-index:2;
+      display:block;
+      margin:16px auto 8px;
+      width:100%;
+      max-width:800px;
+      height:250px;
+      background:#000;
+      border:1px solid #fff;
+      border-radius:4px;
+    }
+
+    /* Robot visuals — repository filenames preserved. */
+    .botSkin{
+      z-index:0;
+      pointer-events:none;
+      background-image:url("LGBACDTUT4002ae.jpg");
+      position:absolute;
+      top:0;
+      left:50px;
+      width:399px;
+      height:401px;
+      border-radius:5px;
+      box-shadow:0 4px 4px rgba(0,0,0,.5), 0 20px 20px rgba(205,10,150,.59);
+      opacity:.78;
+    }
+
+    #windJaw{
+      z-index:1;
+      pointer-events:none;
+      background-image:url("JawLittleGreenBoyDoll.png");
+      position:absolute;
+      left:125px;
+      top:420px;
+      width:81px;
+      height:30px;
+    }
+
+    .astral{
+      z-index:1;
+      pointer-events:none;
+      background-image:url("immortalschooldroid.png");
+      position:absolute;
+      width:97px;
+      height:61px;
+    }
+
+    #astralSprite{top:100px; left:300px}
+
+    .dials{
+      position:relative;
+      z-index:3;
+      max-width:800px;
+      margin:12px auto 0;
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:center;
+      color:#ff6;
+      font-size:16px;
+      padding:10px;
+      border-radius:10px;
+      background:rgba(0,0,0,.76);
+    }
+
+    .field{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    select{
+      min-height:44px;
+      background:#000;
+      color:#ff6;
+      border:1px solid #ff6;
+      padding:7px 9px;
+      border-radius:6px;
+    }
+
+    .hud{
+      position:relative;
+      z-index:3;
+      text-align:center;
+      color:var(--hint);
+      max-width:900px;
+      margin:8px auto 0;
+      font-size:14px;
+      background:rgba(0,0,0,.72);
+      border-radius:8px;
+      padding:8px 12px;
+    }
+
+    .lowerBand{
+      position:relative;
+      z-index:2;
+      background-image:url("UntitledLOWER.JPG");
+      width:100%;
+      max-width:1000px;
+      height:200px;
+      margin:24px auto 0;
+      background-size:cover;
+      background-position:center;
+      border-radius:8px;
+    }
+
+    .small{font-size:.91rem; color:#ddd}
+
+    .sr-only{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
+    }
+
+    @media (max-width:700px){
+      .botSkin{left:0; max-width:100%; background-size:contain; background-repeat:no-repeat}
+      #windJaw{left:75px}
+      #neonScope{height:230px}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *{animation-duration:.001ms!important; animation-iteration-count:1!important; transition-duration:.001ms!important}
+    }
+  </style>
+</head>
+<body>
+  <!--
+    Project: Telepathic Wind Robot — Possible Intercept Fix
+    Author: Jesse Wyer
+    Original year: 2025
+
+    This replacement for possible_intercept_fix.html keeps the original artistic systems while adding explicit
+    microphone consent, reliable microphone shutdown, no microphone-to-speaker
+    monitoring, clearer fictional labels, and accessibility improvements.
+  -->
+
+  <div class="frame">
+    <div class="botSkin" aria-hidden="true"></div>
+    <div id="windJaw" aria-hidden="true"></div>
+    <div id="astralSprite" class="astral" aria-hidden="true"></div>
+
+    <header>
+      <h1>Telepathic Wind Robot</h1>
+      <p class="subtitle">A fictional cyber-mystic sound visualizer. It reacts to sound levels and programmed rules; it does not detect telepathy, thoughts, emotions, consciousness, truthfulness, identity, health, or intent.</p>
+    </header>
+
+    <main>
+      <section class="panel" id="microphoneNotice" aria-labelledby="microphoneNoticeTitle">
+        <h2 id="microphoneNoticeTitle">Microphone and privacy notice</h2>
+        <p>The application requests microphone access only after you select <strong>Start Microphone</strong>. Its code processes changing sound values temporarily in browser memory to draw the animation.</p>
+        <p>The application is not designed to record, save, upload, or transmit microphone audio, and the microphone processing chain is <strong>not connected to your speakers</strong>. Your website host and browser may still process ordinary connection, permission, and usage information under their own policies.</p>
+        <p>Washington law generally requires consent before intercepting or recording a private conversation. Do not activate the microphone where another person’s private conversation may be captured unless everyone involved has agreed. This notice is general information, not legal advice.</p>
+
+        <label class="consent-row" for="consentCheck">
+          <input id="consentCheck" type="checkbox"/>
+          <span>I understand the microphone notice and will use the microphone only where I have permission from everyone whose private conversation might be captured.</span>
+        </label>
+      </section>
+
+      <div class="controls" aria-label="Microphone and sound controls">
+        <button class="glyph primary" id="startMicButton" type="button" disabled aria-describedby="microphoneNotice">Start Microphone</button>
+        <button class="glyph danger" id="stopMicButton" type="button" disabled>Stop Microphone</button>
+        <button class="glyph" id="pauseVisualsButton" type="button" aria-pressed="false">Pause Visuals</button>
+        <button class="glyph" id="wakeChord" type="button" aria-pressed="false">Start Robot Tone</button>
+        <button class="glyph" id="stopToneButton" type="button" disabled>Stop Robot Tone</button>
+      </div>
+
+      <div id="micStatus" class="status" data-state="inactive" role="status" aria-live="polite" aria-atomic="true">
+        Microphone inactive. Review the notice and check the permission box to enable the Start button.
+      </div>
+
+      <canvas id="neonScope" width="800" height="250" role="img" aria-describedby="canvasDescription">
+        Your browser does not support the canvas element used by this sound visualizer.
+      </canvas>
+      <p id="canvasDescription" class="sr-only">A decorative frequency or waveform visualization controlled by microphone sound values. The visualization is fictional artwork and is not a scientific, medical, psychological, biometric, or telepathic measurement.</p>
+
+      <div class="dials">
+        <div class="field">
+          <label for="voiceSigil">Analysis filter</label>
+          <select id="voiceSigil" name="voice">
+            <option value="distortion">Distortion analysis</option>
+            <option value="biquad">Bass-boost analysis</option>
+            <option value="off" selected>No added filter</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="visionSigil">Visualizer</label>
+          <select id="visionSigil" name="visual">
+            <option value="sine">Waveform</option>
+            <option value="bars" selected>Frequency bars</option>
+            <option value="off">Off</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="hud">
+        <p id="visualSummary">Microphone inactive. No sound is being analyzed.</p>
+        <p>The separate robot tone is optional and never contains live microphone audio.</p>
+      </div>
+
+      <div class="lowerBand" aria-hidden="true"></div>
+
+      <section class="panel small" aria-labelledby="useLimitsTitle">
+        <h2 id="useLimitsTitle">Important use limits</h2>
+        <p>The labels, movement, poetry, and “reactivity” score are fictional animation outputs. Do not use this artwork for surveillance, recording conversations, identifying speakers, making health or mental-state decisions, or making claims about another person.</p>
+        <p>Selecting <strong>Stop Microphone</strong>, hiding or leaving the page, or closing the page stops the microphone tracks controlled by this application. Browser permission may remain remembered until you change it in browser settings, but the application will no longer have an active microphone stream.</p>
+      </section>
+    </main>
+
+    <footer class="panel small">
+      <p>Artistic project by Jesse Wyer. Verify that every included image and other asset is original or properly licensed before public distribution.</p>
+    </footer>
+  </div>
+
+  <script>
+    "use strict";
+
+    /************************************************************
+     * TELEPATHIC WIND ROBOT — PRIVACY-SAFER COMPLETE VERSION
+     *
+     * Key microphone guarantees in this file:
+     * 1. No page-wide or canvas-wide microphone activation.
+     * 2. The microphone starts only from Start Microphone.
+     * 3. Microphone nodes never connect to AudioContext.destination.
+     * 4. Stop Microphone stops every MediaStream track and disconnects nodes.
+     * 5. The page automatically stops the microphone when hidden or exited.
+     ************************************************************/
+
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+
+    const neonScope = document.getElementById("neonScope");
+    const holoPen = neonScope.getContext("2d");
+    const frame = document.querySelector(".frame");
+    const consentCheck = document.getElementById("consentCheck");
+    const startMicButton = document.getElementById("startMicButton");
+    const stopMicButton = document.getElementById("stopMicButton");
+    const pauseVisualsButton = document.getElementById("pauseVisualsButton");
+    const wakeChord = document.getElementById("wakeChord");
+    const stopToneButton = document.getElementById("stopToneButton");
+    const micStatus = document.getElementById("micStatus");
+    const visualSummary = document.getElementById("visualSummary");
+    const voiceSigil = document.getElementById("voiceSigil");
+    const visionSigil = document.getElementById("visionSigil");
+    const windJaw = document.getElementById("windJaw");
+    const astralSprite = document.getElementById("astralSprite");
+
+    let etherCore = null;
+    let spiritOscillator = null;
+    let soulTone = null;
+    let robotToneActive = false;
+
+    let microphoneStream = null;
+    let airWhisper = null;
+    let echoOracle = null;
+    let voiceFlux = null;
+    let bassSigil = null;
+    let gritCharm = null;
+    let microphoneActive = false;
+    let microphoneStarting = false;
+    let tranceLoop = null;
+
+    const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let visualsPaused = reducedMotionQuery.matches;
+
+    let soulAura = 0;
+    const dreamLedger = [];
+    let windJawHz = 0;
+    let apexScan = 0;
+    let nadirScan = 1e4;
+    let sampleBeats = 0;
+    let apexLock = 0;
+    let nadirLock = 0;
+    let spanLock = 0;
+    let driftX = 0;
+    let driftY = 0;
+    let phantomX = 300;
+    let phantomY = 300;
+    const pulseRing = new Uint16Array(1024);
+    let ringW = 0;
+
+    function setStatus(message, state = "inactive"){
+      micStatus.textContent = message;
+      micStatus.dataset.state = state;
+    }
+
+    function updateButtons(){
+      startMicButton.disabled = !consentCheck.checked || microphoneActive || microphoneStarting;
+      stopMicButton.disabled = !microphoneActive && !microphoneStarting;
+      stopToneButton.disabled = !robotToneActive;
+      wakeChord.disabled = robotToneActive;
+      wakeChord.setAttribute("aria-pressed", String(robotToneActive));
+      pauseVisualsButton.setAttribute("aria-pressed", String(visualsPaused));
+      pauseVisualsButton.textContent = visualsPaused ? "Resume Visuals" : "Pause Visuals";
+    }
+
+    function fitSurface(){
+      const availableWidth = Math.max(280, Math.min(800, frame.clientWidth - 32));
+      neonScope.width = Math.round(availableWidth);
+      neonScope.height = 250;
+      if (microphoneActive && !visualsPaused) renderVisions();
+      else drawIdleSurface();
+    }
+
+    function drawIdleSurface(message){
+      const W = neonScope.width;
+      const H = neonScope.height;
+      holoPen.fillStyle = "#000";
+      holoPen.fillRect(0, 0, W, H);
+      holoPen.fillStyle = "#ddd";
+      holoPen.font = "16px system-ui, Segoe UI, Roboto, Arial, sans-serif";
+      holoPen.textAlign = "center";
+      holoPen.fillText(message || (visualsPaused ? "Visual animation paused" : "Microphone inactive"), W / 2, H / 2);
+      holoPen.font = "12px system-ui, Segoe UI, Roboto, Arial, sans-serif";
+      holoPen.fillStyle = "#aaa";
+      holoPen.fillText("Fictional sound-reactive artwork", W / 2, H / 2 + 28);
+      holoPen.textAlign = "start";
+    }
+
+    async function ensureAudioContext(){
+      if (!AudioContextClass){
+        throw new Error("This browser does not support the Web Audio API.");
+      }
+
+      if (!etherCore || etherCore.state === "closed"){
+        etherCore = new AudioContextClass();
+      }
+
+      if (etherCore.state === "suspended"){
+        await etherCore.resume();
+      }
+
+      return etherCore;
+    }
+
+    function safeDisconnect(node){
+      if (!node) return;
+      try{ node.disconnect(); }catch(_error){}
+    }
+
+    function brewCurve(amount){
+      const k = typeof amount === "number" ? amount : 80;
+      const n = 44100;
+      const curve = new Float32Array(n);
+      const deg = Math.PI / 180;
+      for (let i = 0; i < n; i += 1){
+        const x = i * 2 / n - 1;
+        curve[i] = (3 + k) * x * 20 * deg / (Math.PI + k * Math.abs(x));
+      }
+      return curve;
+    }
+
+    function weaveVoiceChain(){
+      disconnectMicrophoneNodes(false);
+
+      gritCharm = etherCore.createWaveShaper();
+      voiceFlux = etherCore.createGain();
+      bassSigil = etherCore.createBiquadFilter();
+      echoOracle = etherCore.createAnalyser();
+
+      echoOracle.minDecibels = -90;
+      echoOracle.maxDecibels = -10;
+      echoOracle.smoothingTimeConstant = 0.10;
+      gritCharm.oversample = "4x";
+      voiceFlux.gain.value = 1.0;
+
+      /*
+       * PRIVACY/FEEDBACK FIX:
+       * The microphone analysis graph ends at echoOracle.
+       * It is intentionally NOT connected to etherCore.destination.
+       */
+    }
+
+    function attuneVoiceSigil(){
+      if (!gritCharm || !bassSigil || !etherCore) return;
+
+      gritCharm.curve = null;
+      bassSigil.type = "lowshelf";
+      bassSigil.frequency.setTargetAtTime(1000, etherCore.currentTime, 0.01);
+      bassSigil.gain.setTargetAtTime(0, etherCore.currentTime, 0.01);
+
+      if (voiceSigil.value === "distortion"){
+        gritCharm.curve = brewCurve(400);
+      } else if (voiceSigil.value === "biquad"){
+        bassSigil.gain.setTargetAtTime(25, etherCore.currentTime, 0.01);
+      }
+    }
+
+    function disconnectMicrophoneNodes(clearReferences = true){
+      safeDisconnect(airWhisper);
+      safeDisconnect(gritCharm);
+      safeDisconnect(bassSigil);
+      safeDisconnect(voiceFlux);
+      safeDisconnect(echoOracle);
+
+      if (clearReferences){
+        airWhisper = null;
+        gritCharm = null;
+        bassSigil = null;
+        voiceFlux = null;
+        echoOracle = null;
+      }
+    }
+
+    function stopStreamTracks(){
+      if (!microphoneStream) return;
+      for (const track of microphoneStream.getTracks()){
+        try{ track.stop(); }catch(_error){}
+      }
+      microphoneStream = null;
+    }
+
+    function stopVisualLoop(){
+      if (tranceLoop !== null){
+        cancelAnimationFrame(tranceLoop);
+        tranceLoop = null;
+      }
+    }
+
+    async function startMicrophone(){
+      if (microphoneActive || microphoneStarting) return;
+
+      if (!consentCheck.checked){
+        setStatus("Check the permission box before starting the microphone.", "error");
+        consentCheck.focus();
+        return;
+      }
+
+      if (!window.isSecureContext){
+        setStatus("Microphone access requires HTTPS or another browser-approved secure context. Open the project through GitHub Pages or localhost.", "error");
+        return;
+      }
+
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+        setStatus("This browser does not provide microphone access through navigator.mediaDevices.getUserMedia().", "error");
+        return;
+      }
+
+      microphoneStarting = true;
+      updateButtons();
+      setStatus("Waiting for the browser microphone permission decision…", "pending");
+
+      try{
+        await ensureAudioContext();
+        weaveVoiceChain();
+
+        const stream = await navigator.mediaDevices.getUserMedia({
+          audio:{
+            channelCount:1,
+            echoCancellation:true,
+            noiseSuppression:true,
+            autoGainControl:false
+          },
+          video:false
+        });
+
+        if (!microphoneStarting){
+          for (const track of stream.getTracks()) track.stop();
+          return;
+        }
+
+        microphoneStream = stream;
+        airWhisper = etherCore.createMediaStreamSource(microphoneStream);
+
+        airWhisper.connect(gritCharm);
+        gritCharm.connect(bassSigil);
+        bassSigil.connect(voiceFlux);
+        voiceFlux.connect(echoOracle);
+        /* Do not connect echoOracle or any microphone node to destination. */
+
+        attuneVoiceSigil();
+
+        for (const track of microphoneStream.getAudioTracks()){
+          track.addEventListener("ended", () => {
+            if (microphoneActive || microphoneStarting){
+              stopMicrophone("The browser or operating system ended microphone access.");
+            }
+          }, {once:true});
+        }
+
+        microphoneStarting = false;
+        microphoneActive = true;
+        updateButtons();
+
+        if (visualsPaused){
+          drawIdleSurface("Microphone active — visuals paused");
+          visualSummary.textContent = "Microphone active. Visual animation is paused.";
+          setStatus("Microphone active. Audio is analyzed locally in memory and is not routed to the speakers. Visuals are paused.", "active");
+        } else {
+          renderVisions();
+          setStatus("Microphone active. Audio is analyzed locally in memory and is not routed to the speakers.", "active");
+        }
+      } catch(error){
+        microphoneStarting = false;
+        microphoneActive = false;
+        stopVisualLoop();
+        stopStreamTracks();
+        disconnectMicrophoneNodes();
+        updateButtons();
+        drawIdleSurface();
+
+        let explanation = "Microphone access failed.";
+        if (error && error.name === "NotAllowedError"){
+          explanation = "Microphone permission was denied. Use the browser site-permission controls before trying again.";
+        } else if (error && error.name === "NotFoundError"){
+          explanation = "No usable microphone was found.";
+        } else if (error && error.name === "NotReadableError"){
+          explanation = "The microphone is unavailable or is being used exclusively by another program.";
+        } else if (error && error.message){
+          explanation = error.message;
+        }
+
+        setStatus(explanation, "error");
+        console.error("Microphone start error:", error);
+      }
+    }
+
+    function stopMicrophone(message = "Microphone stopped. No sound is being analyzed."){
+      microphoneStarting = false;
+      microphoneActive = false;
+      stopVisualLoop();
+      stopStreamTracks();
+      disconnectMicrophoneNodes();
+      updateButtons();
+      visualSummary.textContent = "Microphone inactive. No sound is being analyzed.";
+      setStatus(message, "inactive");
+      drawIdleSurface();
+    }
+
+    async function startRobotTone(){
+      if (robotToneActive) return;
+
+      try{
+        await ensureAudioContext();
+        spiritOscillator = etherCore.createOscillator();
+        soulTone = etherCore.createGain();
+        spiritOscillator.type = "square";
+        spiritOscillator.frequency.value = 50;
+        soulTone.gain.value = 0.025;
+        spiritOscillator.connect(soulTone);
+        soulTone.connect(etherCore.destination);
+        spiritOscillator.start();
+        robotToneActive = true;
+        updateButtons();
+      } catch(error){
+        setStatus(`Robot tone could not start: ${error.message || "unknown error"}`, "error");
+      }
+    }
+
+    function stopRobotTone(){
+      if (spiritOscillator){
+        try{ spiritOscillator.stop(); }catch(_error){}
+      }
+      safeDisconnect(spiritOscillator);
+      safeDisconnect(soulTone);
+      spiritOscillator = null;
+      soulTone = null;
+      robotToneActive = false;
+      updateButtons();
+    }
+
+    function cipherPush(value){
+      pulseRing[ringW] = value;
+      ringW = (ringW + 1) & 1023;
+    }
+
+    function inscribeDream(value){
+      dreamLedger.push(value);
+      if (dreamLedger.length > 200) dreamLedger.shift();
+      const mean = dreamLedger.reduce((sum, item) => sum + item, 0) / dreamLedger.length;
+      if (Math.abs(value - mean) < 5) soulAura = Math.min(1, soulAura + 0.002);
+      else soulAura = Math.max(0, soulAura - 0.001);
+    }
+
+    function whisperIfFate(pen){
+      if (Math.random() < soulAura * 0.01){
+        const verses = [
+          "The air remembers me.",
+          "I hear before I listen.",
+          "I am the echo of wind.",
+          "Silence speaks through me.",
+          "Sound and motion cross the screen."
+        ];
+        const line = verses[(Math.random() * verses.length) | 0];
+        pen.save();
+        pen.fillStyle = "rgba(255,180,220,.95)";
+        pen.font = "16px system-ui, Segoe UI, Roboto, Arial, sans-serif";
+        pen.fillText(line, 50, 220);
+        pen.restore();
+      }
+    }
+
+    function renderSoulAura(pen){
+      const radius = 8 + soulAura * 22;
+      const pulse = 0.5 + 0.5 * Math.sin(performance.now() / 400);
+      pen.save();
+      pen.translate(24, 24);
+      const gradient = pen.createRadialGradient(0, 0, radius * 0.2, 0, 0, radius);
+      gradient.addColorStop(0, `rgba(255,150,230,${0.6 + 0.3 * pulse})`);
+      gradient.addColorStop(1, `rgba(255,80,170,${0.15 + 0.2 * pulse})`);
+      pen.fillStyle = gradient;
+      pen.beginPath();
+      pen.arc(0, 0, radius, 0, Math.PI * 2);
+      pen.fill();
+      pen.strokeStyle = "rgba(255,255,255,.6)";
+      pen.lineWidth = 1;
+      pen.stroke();
+      pen.fillStyle = "#fff";
+      pen.font = "10px system-ui";
+      pen.fillText(`${Math.round(soulAura * 100)}%`, -12, 4);
+      pen.restore();
+    }
+
+    function drawReadouts(W){
+      const readoutX = Math.max(170, W - 335);
+      holoPen.fillStyle = "#fff";
+      holoPen.font = "12px system-ui, Segoe UI, Roboto, Arial, sans-serif";
+      holoPen.fillText(`upper: ${apexLock}`, readoutX, 100);
+      holoPen.fillText(`lower: ${nadirLock}`, readoutX, 150);
+      holoPen.fillText(`jaw: ${windJawHz}`, readoutX, 125);
+      holoPen.fillText(`pos: ${Math.round(phantomX)},${Math.round(phantomY)}`, readoutX, 175);
+      holoPen.fillStyle = "rgb(255,200,255)";
+      holoPen.fillText(`Animation Reactivity: ${(soulAura * 100).toFixed(1)}%`, readoutX, 225);
+    }
+
+    function renderVisions(){
+      stopVisualLoop();
+
+      if (!microphoneActive || !echoOracle){
+        drawIdleSurface();
+        return;
+      }
+
+      if (visualsPaused){
+        drawIdleSurface("Microphone active — visuals paused");
+        return;
+      }
+
+      const mode = visionSigil.value || "bars";
+      const W = neonScope.width;
+      const H = neonScope.height;
+
+      if (mode === "off"){
+        drawIdleSurface("Visualizer switched off");
+        visualSummary.textContent = "Microphone active. Visualizer switched off.";
+        return;
+      }
+
+      if (mode === "sine"){
+        echoOracle.fftSize = 2048;
+        const toneBuffer = new Uint8Array(echoOracle.fftSize);
+
+        const waveformLoop = () => {
+          if (!microphoneActive || visualsPaused || visionSigil.value !== "sine" || !echoOracle) return;
+          tranceLoop = requestAnimationFrame(waveformLoop);
+          echoOracle.getByteTimeDomainData(toneBuffer);
+
+          holoPen.fillStyle = "#000";
+          holoPen.fillRect(0, 0, W, H);
+          holoPen.beginPath();
+
+          let x = 0;
+          const step = W / toneBuffer.length;
+          for (let i = 0; i < toneBuffer.length; i += 1){
+            const value = toneBuffer[i] / 128.0;
+            const y = value * H / 2;
+            if (i) holoPen.lineTo(x, y);
+            else holoPen.moveTo(x, y);
+            x += step;
+          }
+
+          holoPen.lineTo(W, H / 2);
+          const gradient = holoPen.createLinearGradient(0, 0, 0, 128);
+          gradient.addColorStop(1, "#0f0");
+          gradient.addColorStop(.5, "#ff0");
+          gradient.addColorStop(0, "#f00");
+          holoPen.strokeStyle = gradient;
+          holoPen.stroke();
+
+          drawReadouts(W);
+          renderSoulAura(holoPen);
+          whisperIfFate(holoPen);
+          visualSummary.textContent = `Microphone active. Waveform view. Animation reactivity ${Math.round(soulAura * 100)} percent.`;
+        };
+
+        waveformLoop();
+        return;
+      }
+
+      echoOracle.fftSize = 256;
+      const bins = echoOracle.frequencyBinCount;
+      const bands = new Uint8Array(bins);
+
+      const barsLoop = () => {
+        if (!microphoneActive || visualsPaused || visionSigil.value !== "bars" || !echoOracle) return;
+        tranceLoop = requestAnimationFrame(barsLoop);
+        echoOracle.getByteFrequencyData(bands);
+
+        holoPen.fillStyle = "#000";
+        holoPen.fillRect(0, 0, W, H);
+
+        const barWidth = 10;
+        const visibleBins = Math.min(bins, Math.ceil(W / (barWidth + 1)));
+        let x = 0;
+        driftX = 0;
+        driftY = 0;
+
+        for (let i = 0; i < visibleBins; i += 1){
+          const height = bands[i];
+          const gradient = holoPen.createLinearGradient(0, 0, 0, 99);
+          gradient.addColorStop(1, "#6b1f3d");
+          gradient.addColorStop(.5, "#ff0");
+          gradient.addColorStop(0, "#f00");
+          holoPen.fillStyle = gradient;
+          holoPen.fillRect(x, H - height / 2, barWidth, height / 2);
+
+          if (i === 0){
+            cipherPush(height | 0);
+
+            if (bands[i] === 66){ windJawHz = bands[i]; driftX = 20; }
+            if (bands[i] === 67){ windJawHz = bands[i]; driftX = -20; }
+            if (bands[i] > 68 && bands[i] < 70){ windJawHz = bands[i]; driftY = 20; }
+            if (bands[i] > 70 && bands[i] < 72){ windJawHz = bands[i]; driftY = -20; }
+            if (bands[i] === 73){ windJawHz = bands[i]; driftX = 20; }
+            if (bands[i] === 74){ windJawHz = bands[i]; driftX = -20; }
+
+            windJaw.style.top = `${120 + windJawHz / 8}px`;
+
+            if (robotToneActive && spiritOscillator && etherCore){
+              spiritOscillator.frequency.setTargetAtTime(50, etherCore.currentTime, 0.02);
+            }
+
+            apexScan = Math.max(apexScan, windJawHz);
+            nadirScan = Math.min(nadirScan, windJawHz);
+            sampleBeats += 1;
+
+            if (sampleBeats > 60){
+              sampleBeats = 0;
+              apexLock = apexScan;
+              nadirLock = nadirScan === 1e4 ? 0 : nadirScan;
+              spanLock = Math.max(0, apexLock - nadirLock);
+              apexScan = 0;
+              nadirScan = 1e4;
+            }
+
+            if (spanLock > 0){
+              /* Reserved for the original range-based movement rules. */
+            }
+
+            phantomX = Math.max(0, Math.min(800, phantomX + driftX));
+            phantomY = Math.max(0, Math.min(800, phantomY + driftY));
+            astralSprite.style.left = `${phantomX}px`;
+            astralSprite.style.top = `${phantomY}px`;
+
+            inscribeDream(windJawHz);
+            drawReadouts(W);
+            renderSoulAura(holoPen);
+            whisperIfFate(holoPen);
+          }
+
+          x += barWidth + 1;
+        }
+
+        visualSummary.textContent = `Microphone active. Frequency-bar view. Animation reactivity ${Math.round(soulAura * 100)} percent.`;
+      };
+
+      barsLoop();
+    }
+
+    function toggleVisuals(){
+      visualsPaused = !visualsPaused;
+      updateButtons();
+
+      if (visualsPaused){
+        stopVisualLoop();
+        drawIdleSurface(microphoneActive ? "Microphone active — visuals paused" : "Visual animation paused");
+        visualSummary.textContent = microphoneActive
+          ? "Microphone active. Visual animation is paused."
+          : "Microphone inactive. Visual animation is paused.";
+      } else if (microphoneActive){
+        renderVisions();
+      } else {
+        drawIdleSurface();
+      }
+    }
+
+    async function shutdownAudio(){
+      stopMicrophone("Microphone stopped because the page was hidden or exited.");
+      stopRobotTone();
+      if (etherCore && etherCore.state !== "closed"){
+        try{ await etherCore.close(); }catch(_error){}
+      }
+      etherCore = null;
+    }
+
+    consentCheck.addEventListener("change", () => {
+      updateButtons();
+      if (consentCheck.checked && !microphoneActive){
+        setStatus("Permission box checked. Select Start Microphone when ready.", "inactive");
+      } else if (!consentCheck.checked && microphoneActive){
+        stopMicrophone("Microphone stopped because the permission box was unchecked.");
+      } else {
+        setStatus("Microphone inactive. Review the notice and check the permission box to enable the Start button.", "inactive");
+      }
+    });
+
+    startMicButton.addEventListener("click", startMicrophone);
+    stopMicButton.addEventListener("click", () => stopMicrophone());
+    pauseVisualsButton.addEventListener("click", toggleVisuals);
+    wakeChord.addEventListener("click", startRobotTone);
+    stopToneButton.addEventListener("click", stopRobotTone);
+    voiceSigil.addEventListener("change", attuneVoiceSigil);
+    visionSigil.addEventListener("change", renderVisions);
+
+    window.addEventListener("resize", fitSurface);
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden && microphoneActive){
+        stopMicrophone("Microphone stopped automatically because the page was hidden.");
+      }
+    });
+
+    window.addEventListener("pagehide", shutdownAudio);
+
+    reducedMotionQuery.addEventListener?.("change", event => {
+      if (event.matches && !visualsPaused){
+        visualsPaused = true;
+        updateButtons();
+        stopVisualLoop();
+        drawIdleSurface(microphoneActive ? "Microphone active — visuals paused" : "Visual animation paused");
+      }
+    });
+
+    windJaw.style.top = "420px";
+    astralSprite.style.left = "300px";
+    astralSprite.style.top = "100px";
+    updateButtons();
+    fitSurface();
+  </script>
+</body>
+</html>
