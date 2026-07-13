@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#05070b">
+  <meta name="color-scheme" content="dark">
+  <title>Telepathic Wind Robot — Microphone Terrain Rooms</title>
+  <style>
+    :root{
+      --ink:#f7fbff;
+      --muted:#c7d5df;
+      --panel:rgba(4,8,14,.92);
+      --line:rgba(180,235,255,.34);
+      --cyan:#62f7ff;
+      --green:#7dff99;
+      --gold:#ffe066;
+      --pink:#ff78d7;
+      --red:#ff9b9b;
+      --focus:#fff27a;
+    }
+    *{box-sizing:border-box}
+    html{background:#020409}
+    body{
+      margin:0;
+      min-height:100vh;
+      color:var(--ink);
+      font-family:system-ui,"Segoe UI",Roboto,Arial,sans-serif;
+      line-height:1.45;
+      background:
+        linear-gradient(rgba(0,0,0,.50),rgba(0,0,0,.76)),
+        #020409 url("sunrise-g80c83fd0f_1920.jpg") center/cover fixed no-repeat;
+    }
+    button,select,input{font:inherit}
+    button:focus-visible,select:focus-visible,input:focus-visible{
+      outline:3px solid var(--focus);
+      outline-offset:3px;
+    }
+    .frame{
+      width:min(1120px,100%);
+      margin:0 auto;
+      padding:14px 14px 52px;
+    }
+    header{text-align:center}
+    h1{margin:.2rem 0;text-shadow:0 2px 10px #000}
+    h2{margin:.2rem 0 .6rem}
+    .subtitle{max-width:900px;margin:.25rem auto 1rem;color:#e9f9ff}
+    .panel{
+      max-width:1000px;
+      margin:12px auto;
+      padding:14px 16px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:var(--panel);
+      box-shadow:0 10px 28px rgba(0,0,0,.5);
+    }
+    .panel p{margin:.45rem 0}
+    .consent-row{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      margin-top:12px;
+      padding:10px;
+      border:1px solid rgba(255,224,102,.55);
+      border-radius:9px;
+      background:rgba(80,65,0,.34);
+    }
+    .consent-row input{
+      width:1.25rem;height:1.25rem;margin-top:.16rem;flex:0 0 auto;
+    }
+    .controls{
+      max-width:1000px;
+      margin:10px auto;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:9px;
+    }
+    .glyph{
+      min-height:44px;
+      padding:9px 14px;
+      border:1px solid var(--line);
+      border-radius:9px;
+      background:rgba(0,0,0,.86);
+      color:#fff;
+      cursor:pointer;
+    }
+    .glyph:hover:not(:disabled){background:rgba(80,135,160,.3)}
+    .glyph:disabled{opacity:.45;cursor:not-allowed}
+    .primary{border-color:var(--green)}
+    .danger{border-color:var(--red)}
+    .demo{border-color:var(--gold)}
+    .status{
+      max-width:1000px;
+      min-height:48px;
+      margin:10px auto;
+      padding:10px 14px;
+      border:1px solid var(--line);
+      border-radius:9px;
+      background:rgba(0,0,0,.94);
+      text-align:center;
+      font-weight:700;
+    }
+    .status[data-state="active"]{color:var(--green);border-color:var(--green)}
+    .status[data-state="pending"]{color:var(--gold);border-color:var(--gold)}
+    .status[data-state="error"]{color:var(--red);border-color:var(--red)}
+    .status[data-state="demo"]{color:var(--gold);border-color:var(--gold)}
+    #gameBoard{
+      position:relative;
+      width:min(100%,800px);
+      aspect-ratio:800/520;
+      margin:14px auto;
+      border:1px solid #fff;
+      border-radius:7px;
+      overflow:hidden;
+      background:#000;
+      box-shadow:0 8px 32px rgba(0,0,0,.68),0 0 24px rgba(98,247,255,.14);
+    }
+    #neonScope{
+      display:block;
+      width:100%;
+      height:100%;
+      background:#05090d;
+      touch-action:manipulation;
+    }
+    #gameHUD{
+      position:absolute;
+      inset:8px 8px auto 8px;
+      display:flex;
+      gap:8px;
+      justify-content:space-between;
+      align-items:flex-start;
+      pointer-events:none;
+    }
+    .hudPanel{
+      max-width:49%;
+      padding:7px 9px;
+      border:1px solid rgba(255,255,255,.28);
+      border-radius:7px;
+      background:rgba(0,0,0,.78);
+      color:#fff;
+      font:12px/1.35 Consolas,Monaco,monospace;
+      text-shadow:0 1px 3px #000;
+    }
+    #signalHud{text-align:right}
+    #titlePanel,#victoryPanel{
+      position:absolute;
+      inset:0;
+      display:grid;
+      place-items:center;
+      padding:18px;
+      background:rgba(0,0,0,.76);
+      z-index:4;
+    }
+    #victoryPanel{display:none}
+    .panelInner{
+      max-width:630px;
+      padding:18px;
+      border:1px solid var(--cyan);
+      border-radius:12px;
+      background:rgba(0,0,0,.92);
+      text-align:center;
+      box-shadow:0 0 28px rgba(98,247,255,.22);
+    }
+    .panelInner p{margin:.6rem 0}
+    .kbdNote{color:#9ff;font-weight:700}
+    .dials{
+      max-width:1000px;
+      margin:10px auto;
+      padding:10px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      align-items:center;
+      gap:15px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      background:rgba(0,0,0,.84);
+      color:#ffef83;
+    }
+    .field{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    select{
+      min-height:44px;
+      padding:7px 9px;
+      border:1px solid #ffef83;
+      border-radius:6px;
+      background:#050505;
+      color:#ffef83;
+    }
+    .hud-note{
+      max-width:1000px;
+      margin:9px auto;
+      padding:9px 12px;
+      border-radius:8px;
+      background:rgba(0,0,0,.78);
+      text-align:center;
+      color:#eaf8ff;
+    }
+    .privacyBox{
+      max-width:1000px;
+      margin:10px auto;
+      padding:11px 13px;
+      border:1px solid rgba(255,224,102,.55);
+      border-radius:9px;
+      background:rgba(42,35,0,.86);
+      color:#fff3a5;
+    }
+    .small{font-size:.92rem;color:#d3dde4}
+    .sr-only{
+      position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+    }
+    .lowerBand{
+      width:min(100%,1000px);
+      height:180px;
+      margin:22px auto 0;
+      border-radius:8px;
+      background:#05070b url("UntitledLOWER.jpg") center/cover no-repeat;
+      box-shadow:0 8px 28px rgba(0,0,0,.48);
+    }
+    noscript{
+      display:block;max-width:900px;margin:12px auto;padding:12px;
+      border:2px solid var(--red);background:#230000;color:#fff;
+    }
+    @media(max-width:650px){
+      .hudPanel{font-size:9px;max-width:51%;padding:5px}
+      #gameHUD{inset:4px 4px auto 4px;gap:4px}
+      .panelInner{font-size:.9rem}
+      .lowerBand{height:120px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+    }
+  </style>
+</head>
+<body>
+<!--
+  Telepathic Wind Robot — Microphone Terrain Rooms
+  Author: Jesse Wyer
+  Fully repaired privacy/control edition.
+
+  This is fictional interactive artwork. It is not a scientific, medical,
+  biometric, psychological, surveillance, telepathy, consciousness, or
+  emotion-detection instrument.
+-->
+<div class="frame">
+  <header>
+    <h1>Telepathic Wind Robot: Signal Terrain Rooms</h1>
+    <p class="subtitle">A fictional microphone-reactive terrain game. Programmed sound-band rules move the android through rooms; the game does not detect thoughts, telepathy, consciousness, emotions, health, truthfulness, identity, or intent.</p>
+  </header>
+
+  <noscript>This page requires JavaScript. The microphone cannot start while JavaScript is disabled.</noscript>
+
+  <main>
+    <section class="panel" id="microphoneNotice" aria-labelledby="microphoneNoticeTitle">
+      <h2 id="microphoneNoticeTitle">Microphone and privacy notice</h2>
+      <p>The page requests microphone access only after you press a clearly labeled <strong>Start Microphone</strong> button. Sound values are processed temporarily in browser memory to operate the fictional game and visualizer.</p>
+      <p>The microphone processing chain ends at an analyzer and is <strong>not connected to your speakers</strong>. This page is not designed to record, save, upload, or transmit microphone audio. The browser or website host may separately process ordinary connection and permission information under its own policy.</p>
+      <p>Washington law generally requires consent before intercepting or recording a private conversation. Do not activate the microphone where another person’s private conversation may be captured unless everyone involved has agreed. This is general information, not legal advice.</p>
+      <label class="consent-row" for="consentCheck">
+        <input id="consentCheck" type="checkbox">
+        <span>I understand the notice and will activate the microphone only where I have permission from everyone whose private conversation might be captured.</span>
+      </label>
+    </section>
+
+    <div class="controls" aria-label="Microphone, game, and optional sound controls">
+      <button class="glyph primary" id="startMicButton" type="button" disabled aria-describedby="microphoneNotice">Start Microphone Terrain Game</button>
+      <button class="glyph danger" id="stopMicButton" type="button" disabled>Stop Microphone</button>
+      <button class="glyph demo" id="startFallbackButton" type="button">Start Silent Demo Signal</button>
+      <button class="glyph danger" id="stopFallbackButton" type="button" disabled>Stop Demo Signal</button>
+      <button class="glyph" id="pauseVisualsButton" type="button" aria-pressed="false">Pause Visuals</button>
+      <button class="glyph" id="startToneButton" type="button" aria-pressed="false">Start Optional Robot Tone</button>
+      <button class="glyph danger" id="stopToneButton" type="button" disabled>Stop Robot Tone</button>
+      <button class="glyph" id="resetGameButton" type="button">Reset Rooms</button>
+    </div>
+
+    <div id="micStatus" class="status" data-state="inactive" role="status" aria-live="polite" aria-atomic="true">
+      Microphone inactive. Review the notice and check the permission box to enable microphone startup.
+    </div>
+
+    <div id="gameBoard">
+      <canvas id="neonScope" width="800" height="520" role="img" aria-describedby="gameDescription">
+        Your browser does not support this canvas game.
+      </canvas>
+      <div id="gameHUD" aria-hidden="true">
+        <div class="hudPanel" id="roomHud">Room loading…</div>
+        <div class="hudPanel" id="signalHud">Signal loading…</div>
+      </div>
+
+      <div id="titlePanel">
+        <div class="panelInner">
+          <h2>Signal Terrain Rooms</h2>
+          <p>The android moves from microphone frequency-band rules. There is <span class="kbdNote">no keyboard player movement</span>.</p>
+          <p>Collect six signal crystals, pass through the connected doors, and reach the final portal. Collision repair and an automatic stuck guard remain enabled.</p>
+          <p>Check the microphone permission box above, then use this dedicated button. Clicking the canvas or another part of the page will <strong>not</strong> request microphone access.</p>
+          <button class="glyph primary" id="startPanelButton" type="button" disabled>Start Microphone Terrain Game</button>
+          <button class="glyph demo" id="demoPanelButton" type="button">Play with Silent Demo Signal</button>
+        </div>
+      </div>
+
+      <div id="victoryPanel">
+        <div class="panelInner">
+          <h2>Signal Exit Complete</h2>
+          <p>The android reached the final portal through the programmed sound-reactive room system.</p>
+          <p id="finalStats"></p>
+          <button class="glyph" id="againButton" type="button">Restart Rooms</button>
+        </div>
+      </div>
+    </div>
+
+    <p id="gameDescription" class="sr-only">A fictional sound-reactive canvas game with nine terrain rooms, obstacles, signal crystals, doors, a minimap, collision repair, and a final portal. The robot moves according to programmed frequency-band values rather than keyboard controls.</p>
+
+    <div class="dials" aria-label="Analyzer display options">
+      <div class="field">
+        <label for="voiceSigil">Analysis filter</label>
+        <select id="voiceSigil">
+          <option value="distortion">Distortion analysis</option>
+          <option value="biquad">Bass-boost analysis</option>
+          <option value="off" selected>No added filter</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="visionSigil">Visualizer</label>
+        <select id="visionSigil">
+          <option value="sine">Waveform</option>
+          <option value="bars" selected>Frequency bars</option>
+          <option value="off">Off</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="hud-note">
+      Microphone access is controlled only by the dedicated Start buttons. The silent demo generates mathematical test values and does not use the microphone.
+    </div>
+
+    <div class="privacyBox">
+      <strong>Important:</strong> Selecting <strong>Stop Microphone</strong>, hiding or leaving the page, or closing the page stops all microphone tracks controlled by this application. A remembered browser permission may remain in browser settings, but this page will no longer hold an active stream.
+    </div>
+
+    <section class="panel small" aria-labelledby="artNoticeTitle">
+      <h2 id="artNoticeTitle">Fictional artwork and limitation notice</h2>
+      <p>Names such as “Telepathic Wind Robot,” “signal,” and “reactivity” are artistic labels. Displayed values are derived from audio amplitude, frequency bins, mathematical demo signals, collision rules, and random decorative effects. They are not measurements of a person or a private mental state.</p>
+      <p>No camera, location, account, advertising, analytics, cloud microphone processing, speech recognition, speaker identification, voiceprint, or biometric identification feature is included in this page.</p>
+    </section>
+  </main>
+
+  <div class="lowerBand" aria-hidden="true"></div>
+</div>
+
+<script>
+"use strict";
+
+(() => {
+  /* ---------- Constants and elements ---------- */
+  const BOARD_W = 800;
+  const BOARD_H = 520;
+  const ROBOT_W = 62;
+  const ROBOT_H = 42;
+  const DOOR_HALF = 64;
+  const DOOR_DEPTH = 20;
+  const MAX_SPEED = 128;
+  const ACCELERATION = 340;
+  const DRAG = 0.88;
+  const SIGNAL_DEADZONE = 0.035;
+  const REQUIRED_CRYSTALS = 6;
+
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  const canvas = document.getElementById("neonScope");
+  const ctx = canvas.getContext("2d", {alpha:false});
+  const roomHud = document.getElementById("roomHud");
+  const signalHud = document.getElementById("signalHud");
+  const titlePanel = document.getElementById("titlePanel");
+  const victoryPanel = document.getElementById("victoryPanel");
+  const finalStats = document.getElementById("finalStats");
+  const consentCheck = document.getElementById("consentCheck");
+  const startMicButton = document.getElementById("startMicButton");
+  const startPanelButton = document.getElementById("startPanelButton");
+  const stopMicButton = document.getElementById("stopMicButton");
+  const startFallbackButton = document.getElementById("startFallbackButton");
+  const stopFallbackButton = document.getElementById("stopFallbackButton");
+  const demoPanelButton = document.getElementById("demoPanelButton");
+  const pauseVisualsButton = document.getElementById("pauseVisualsButton");
+  const startToneButton = document.getElementById("startToneButton");
+  const stopToneButton = document.getElementById("stopToneButton");
+  const resetGameButton = document.getElementById("resetGameButton");
+  const againButton = document.getElementById("againButton");
+  const micStatus = document.getElementById("micStatus");
+  const voiceSigil = document.getElementById("voiceSigil");
+  const visionSigil = document.getElementById("visionSigil");
+
+  if (!ctx){
+    micStatus.textContent = "Canvas could not start in this browser.";
+    micStatus.dataset.state = "error";
+    return;
+  }
+
+  const robotImage = new Image();
+  robotImage.src = "immortalschooldroid.png";
+  let robotImageReady = false;
+  robotImage.addEventListener("load", () => { robotImageReady = true; });
+
+  /* ---------- Room definitions ---------- */
+  const roomList = [
+    {
+      x:1,y:1,name:"Central Signal Garden",objective:"Find the first signal crystal.",
+      palette:["#09211b","#0d3127","#154539"],pattern:"grass",
+      obstacles:[
+        {x:98,y:108,w:128,h:54,type:"hedge"},
+        {x:560,y:114,w:128,h:54,type:"hedge"},
+        {x:325,y:300,w:150,h:48,type:"stone"}
+      ],
+      crystals:[{id:"c1",x:400,y:225}]
+    },
+    {
+      x:0,y:1,name:"Moss Echo Chamber",objective:"Navigate the wet stone blocks.",
+      palette:["#071d21","#0d3940","#1a5960"],pattern:"water",
+      obstacles:[
+        {x:120,y:80,w:80,h:235,type:"pillar"},
+        {x:325,y:205,w:150,h:70,type:"water"},
+        {x:600,y:205,w:76,h:235,type:"pillar"}
+      ],
+      crystals:[{id:"c2",x:400,y:122}]
+    },
+    {
+      x:2,y:1,name:"Copper Wind Orchard",objective:"Cross the alternating metal groves.",
+      palette:["#2b1709","#503018","#86502c"],pattern:"copper",
+      obstacles:[
+        {x:150,y:100,w:86,h:100,type:"tree"},
+        {x:300,y:250,w:86,h:100,type:"tree"},
+        {x:455,y:100,w:86,h:100,type:"tree"},
+        {x:600,y:250,w:86,h:100,type:"tree"}
+      ],
+      crystals:[{id:"c3",x:400,y:430}]
+    },
+    {
+      x:1,y:0,name:"Auroral Ridge",objective:"Move between the crystal ridges.",
+      palette:["#10142d","#25326a","#5367c5"],pattern:"aurora",
+      obstacles:[
+        {x:90,y:175,w:220,h:58,type:"ridge"},
+        {x:490,y:175,w:220,h:58,type:"ridge"},
+        {x:290,y:340,w:220,h:58,type:"ridge"}
+      ],
+      crystals:[{id:"c4",x:400,y:110}]
+    },
+    {
+      x:1,y:2,name:"Night Mud Forest",objective:"Thread through the dark trunks.",
+      palette:["#120d0a","#282017","#4b3b26"],pattern:"mud",
+      obstacles:[
+        {x:120,y:95,w:70,h:160,type:"tree"},
+        {x:265,y:285,w:70,h:160,type:"tree"},
+        {x:460,y:95,w:70,h:160,type:"tree"},
+        {x:610,y:285,w:70,h:160,type:"tree"}
+      ],
+      crystals:[{id:"c5",x:400,y:255}]
+    },
+    {
+      x:0,y:0,name:"Static Ruin",objective:"Avoid the broken electrical walls.",
+      palette:["#18151e","#302b3b","#58506c"],pattern:"ruin",
+      obstacles:[
+        {x:105,y:95,w:235,h:54,type:"wall"},
+        {x:460,y:95,w:235,h:54,type:"wall"},
+        {x:280,y:300,w:240,h:54,type:"wall"}
+      ],
+      crystals:[{id:"c6",x:400,y:230}]
+    },
+    {
+      x:2,y:0,name:"Final Transmission Gate",objective:"Collect all crystals, then enter the portal.",
+      palette:["#17102a","#351d58","#7540a8"],pattern:"portal",
+      obstacles:[
+        {x:110,y:110,w:100,h:225,type:"obelisk"},
+        {x:590,y:110,w:100,h:225,type:"obelisk"},
+        {x:300,y:390,w:200,h:44,type:"stone"}
+      ],
+      crystals:[]
+    },
+    {
+      x:0,y:2,name:"Blue Frequency Quarry",objective:"Use the open channels between slabs.",
+      palette:["#081929","#123a5a","#246a92"],pattern:"quarry",
+      obstacles:[
+        {x:90,y:110,w:240,h:62,type:"slab"},
+        {x:470,y:110,w:240,h:62,type:"slab"},
+        {x:90,y:340,w:240,h:62,type:"slab"},
+        {x:470,y:340,w:240,h:62,type:"slab"}
+      ],
+      crystals:[]
+    },
+    {
+      x:2,y:2,name:"Pink Harmonic Basin",objective:"Find a route around the harmonic pools.",
+      palette:["#260d24","#5b1d54","#9b3a8d"],pattern:"basin",
+      obstacles:[
+        {x:145,y:170,w:160,h:160,type:"pool"},
+        {x:495,y:170,w:160,h:160,type:"pool"}
+      ],
+      crystals:[]
+    }
+  ];
+  const rooms = new Map(roomList.map(room => [`${room.x},${room.y}`, room]));
+
+  function roomAt(x,y){ return rooms.get(`${x},${y}`) || null; }
+  function currentRoom(){ return roomAt(game.roomX, game.roomY); }
+
+  /* ---------- Game state ---------- */
+  const game = {
+    roomX:1, roomY:1,
+    x:400, y:250,
+    vx:0, vy:0,
+    started:false,
+    victory:false,
+    startTime:0,
+    roomTransitions:0,
+    crystals:new Set(),
+    doorCooldown:0,
+    lastDoor:"none",
+    lastDoorStatus:"clear",
+    collisionStatus:"clear",
+    overlapRepairStatus:"ready",
+    stuckGuardStatus:"ready",
+    stuckFrames:0,
+    lastSafeX:400,
+    lastSafeY:250,
+    lastMoveName:"rest",
+    activeMoveName:"rest",
+    lastMoveFrequency:0
+  };
+
+  let audioContext = null;
+  let micStream = null;
+  let micSource = null;
+  let waveShaper = null;
+  let bassFilter = null;
+  let micGain = null;
+  let analyser = null;
+  let microphoneStarting = false;
+  let microphoneActive = false;
+  let fallbackActive = false;
+  let visualsPaused = false;
+  let rafId = null;
+  let lastFrameTime = performance.now();
+  let toneOscillator = null;
+  let toneGain = null;
+  let robotToneActive = false;
+  let frequencyData = new Uint8Array(512);
+  let timeData = new Uint8Array(1024);
+  let signal = {energy:0,bass:0,lowMid:0,mid:0,high:0,centroid:0,peak:0};
+  let fallbackPhase = 0;
+
+  /* ---------- Status and controls ---------- */
+  function setStatus(message,state="inactive"){
+    micStatus.textContent = message;
+    micStatus.dataset.state = state;
+  }
+
+  function updateControls(){
+    const consented = consentCheck.checked;
+    startMicButton.disabled = !consented || microphoneActive || microphoneStarting;
+    startPanelButton.disabled = !consented || microphoneActive || microphoneStarting;
+    stopMicButton.disabled = !microphoneActive && !microphoneStarting;
+    startFallbackButton.disabled = fallbackActive;
+    stopFallbackButton.disabled = !fallbackActive;
+    demoPanelButton.disabled = fallbackActive;
+    startToneButton.disabled = robotToneActive;
+    stopToneButton.disabled = !robotToneActive;
+    startToneButton.setAttribute("aria-pressed", String(robotToneActive));
+    pauseVisualsButton.setAttribute("aria-pressed", String(visualsPaused));
+    pauseVisualsButton.textContent = visualsPaused ? "Resume Visuals" : "Pause Visuals";
+  }
+
+  function safeDisconnect(node){
+    if (!node) return;
+    try{ node.disconnect(); }catch(_error){}
+  }
+
+  async function ensureAudioContext(){
+    if (!AudioContextClass) throw new Error("This browser does not support the Web Audio API.");
+    if (!audioContext || audioContext.state === "closed") audioContext = new AudioContextClass();
+    if (audioContext.state === "suspended") await audioContext.resume();
+    return audioContext;
+  }
+
+  function makeDistortionCurve(amount=400){
+    const length = 44100;
+    const curve = new Float32Array(length);
+    const deg = Math.PI / 180;
+    for (let i=0;i<length;i+=1){
+      const x = i*2/length-1;
+      curve[i]=(3+amount)*x*20*deg/(Math.PI+amount*Math.abs(x));
+    }
+    return curve;
+  }
+
+  function buildMicChain(){
+    disconnectMicNodes();
+    waveShaper = audioContext.createWaveShaper();
+    bassFilter = audioContext.createBiquadFilter();
+    micGain = audioContext.createGain();
+    analyser = audioContext.createAnalyser();
+    analyser.fftSize = 2048;
+    analyser.minDecibels = -90;
+    analyser.maxDecibels = -10;
+    analyser.smoothingTimeConstant = .18;
+    waveShaper.oversample = "4x";
+    micGain.gain.value = 1;
+    applyVoiceFilter();
+
+    /*
+      Privacy and feedback fix:
+      micSource -> waveShaper -> bassFilter -> micGain -> analyser
+      The graph ends at analyser. No microphone node is connected to
+      audioContext.destination.
+    */
+  }
+
+  function applyVoiceFilter(){
+    if (!waveShaper || !bassFilter || !audioContext) return;
+    waveShaper.curve = null;
+    bassFilter.type = "lowshelf";
+    bassFilter.frequency.setTargetAtTime(1000,audioContext.currentTime,.01);
+    bassFilter.gain.setTargetAtTime(0,audioContext.currentTime,.01);
+    if (voiceSigil.value === "distortion"){
+      waveShaper.curve = makeDistortionCurve(400);
+    } else if (voiceSigil.value === "biquad"){
+      bassFilter.gain.setTargetAtTime(18,audioContext.currentTime,.01);
+    }
+  }
+
+  function disconnectMicNodes(){
+    safeDisconnect(micSource);
+    safeDisconnect(waveShaper);
+    safeDisconnect(bassFilter);
+    safeDisconnect(micGain);
+    safeDisconnect(analyser);
+    micSource=null;waveShaper=null;bassFilter=null;micGain=null;analyser=null;
+  }
+
+  function stopMicTracks(){
+    if (!micStream) return;
+    for (const track of micStream.getTracks()){
+      try{ track.stop(); }catch(_error){}
+    }
+    micStream=null;
+  }
+
+  async function startMicrophone(){
+    if (microphoneActive || microphoneStarting) return;
+    if (!consentCheck.checked){
+      setStatus("Check the microphone permission box before starting.","error");
+      consentCheck.focus();
+      return;
+    }
+    if (!window.isSecureContext){
+      setStatus("Microphone access requires HTTPS, localhost, or another browser-approved secure context.","error");
+      return;
+    }
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+      setStatus("This browser does not provide navigator.mediaDevices.getUserMedia().","error");
+      return;
+    }
+
+    microphoneStarting=true;
+    fallbackActive=false;
+    updateControls();
+    setStatus("Waiting for the browser microphone permission decision…","pending");
+
+    try{
+      await ensureAudioContext();
+      buildMicChain();
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio:{
+          channelCount:1,
+          echoCancellation:true,
+          noiseSuppression:true,
+          autoGainControl:false
+        },
+        video:false
+      });
+
+      if (!microphoneStarting){
+        stream.getTracks().forEach(track=>track.stop());
+        return;
+      }
+
+      micStream=stream;
+      micSource=audioContext.createMediaStreamSource(stream);
+      micSource.connect(waveShaper);
+      waveShaper.connect(bassFilter);
+      bassFilter.connect(micGain);
+      micGain.connect(analyser);
+      /* Intentionally no connection to audioContext.destination. */
+
+      frequencyData=new Uint8Array(analyser.frequencyBinCount);
+      timeData=new Uint8Array(analyser.fftSize);
+      microphoneStarting=false;
+      microphoneActive=true;
+      fallbackActive=false;
+      titlePanel.style.display="none";
+      startGameIfNeeded();
+
+      for (const track of stream.getAudioTracks()){
+        track.addEventListener("ended",()=>{
+          if (microphoneActive || microphoneStarting){
+            stopMicrophone("The browser or operating system ended microphone access.");
+          }
+        },{once:true});
+      }
+
+      updateControls();
+      setStatus("Microphone active. Sound values are processed locally in memory and are not routed to the speakers.","active");
+    }catch(error){
+      microphoneStarting=false;
+      microphoneActive=false;
+      stopMicTracks();
+      disconnectMicNodes();
+      updateControls();
+
+      let message="Microphone access failed.";
+      if (error?.name==="NotAllowedError") message="Microphone permission was denied. Use the browser site-permission controls before trying again.";
+      else if (error?.name==="NotFoundError") message="No usable microphone was found.";
+      else if (error?.name==="NotReadableError") message="The microphone is unavailable or is being used exclusively by another program.";
+      else if (error?.message) message=error.message;
+      setStatus(message,"error");
+      console.error("Microphone start error:",error);
+    }
+  }
+
+  function stopMicrophone(message="Microphone stopped. No microphone sound is being analyzed."){
+    microphoneStarting=false;
+    microphoneActive=false;
+    stopMicTracks();
+    disconnectMicNodes();
+    updateControls();
+    setStatus(message,fallbackActive?"demo":"inactive");
+  }
+
+  function startFallback(){
+    stopMicrophone("Microphone inactive. Silent mathematical demo signal is running.");
+    fallbackActive=true;
+    titlePanel.style.display="none";
+    startGameIfNeeded();
+    updateControls();
+    setStatus("Silent demo signal active. The microphone is not being used.","demo");
+  }
+
+  function stopFallback(){
+    fallbackActive=false;
+    game.vx=0;
+    game.vy=0;
+    clearSignal();
+    updateControls();
+    setStatus("Silent demo signal stopped. The microphone is inactive.","inactive");
+  }
+
+  async function startRobotTone(){
+    if (robotToneActive) return;
+    try{
+      await ensureAudioContext();
+      toneOscillator=audioContext.createOscillator();
+      toneGain=audioContext.createGain();
+      toneOscillator.type="square";
+      toneOscillator.frequency.value=50;
+      toneGain.gain.value=.022;
+      toneOscillator.connect(toneGain);
+      toneGain.connect(audioContext.destination);
+      toneOscillator.start();
+      robotToneActive=true;
+      updateControls();
+    }catch(error){
+      setStatus(`Optional robot tone could not start: ${error.message || "unknown error"}`,"error");
+    }
+  }
+
+  function stopRobotTone(){
+    if (toneOscillator){
+      try{toneOscillator.stop();}catch(_error){}
+    }
+    safeDisconnect(toneOscillator);
+    safeDisconnect(toneGain);
+    toneOscillator=null;toneGain=null;robotToneActive=false;
+    updateControls();
+  }
+
+  /* ---------- Signal analysis ---------- */
+  function averageRange(data,start,end){
+    const s=Math.max(0,Math.min(data.length-1,start|0));
+    const e=Math.max(s+1,Math.min(data.length,end|0));
+    let sum=0;
+    for(let i=s;i<e;i+=1) sum+=data[i];
+    return sum/((e-s)*255);
+  }
+
+  function readMicrophoneSignal(){
+    analyser.getByteFrequencyData(frequencyData);
+    analyser.getByteTimeDomainData(timeData);
+    const nyquist=audioContext.sampleRate/2;
+    const binHz=nyquist/frequencyData.length;
+    const binFor=hz=>Math.max(1,Math.round(hz/binHz));
+
+    let energy=0,weighted=0,total=0,peak=0,peakIndex=0;
+    for(let i=0;i<frequencyData.length;i+=1){
+      const v=frequencyData[i]/255;
+      energy+=v*v;
+      total+=v;
+      weighted+=v*i;
+      if(v>peak){peak=v;peakIndex=i}
+    }
+    energy=Math.sqrt(energy/frequencyData.length);
+    const centroid=total>0?(weighted/total)*binHz:0;
+    signal={
+      energy,
+      bass:averageRange(frequencyData,binFor(40),binFor(180)),
+      lowMid:averageRange(frequencyData,binFor(180),binFor(600)),
+      mid:averageRange(frequencyData,binFor(600),binFor(2200)),
+      high:averageRange(frequencyData,binFor(2200),binFor(7000)),
+      centroid,
+      peak:peakIndex*binHz
+    };
+  }
+
+  function readFallbackSignal(dt){
+    fallbackPhase+=dt;
+    const phase=fallbackPhase;
+    const segment=Math.floor(phase/2.8)%8;
+    const pulse=.11+.07*(.5+.5*Math.sin(phase*3.7));
+    const bands=[.025,.025,.025,.025];
+    bands[segment%4]=.32+.22*(.5+.5*Math.sin(phase*5.1));
+    bands[(segment+1)%4]=pulse;
+    signal={
+      energy:.12+.08*(.5+.5*Math.sin(phase*2.1)),
+      bass:bands[0],
+      lowMid:bands[1],
+      mid:bands[2],
+      high:bands[3],
+      centroid:180+segment*680,
+      peak:80+segment*740
+    };
+  }
+
+  function clearSignal(){
+    signal={energy:0,bass:0,lowMid:0,mid:0,high:0,centroid:0,peak:0};
+  }
+
+  /* ---------- Collision, overlap repair, and room transitions ---------- */
+  function robotRect(x=game.x,y=game.y){
+    return {x:x-ROBOT_W/2,y:y-ROBOT_H/2,w:ROBOT_W,h:ROBOT_H};
+  }
+  function intersects(a,b){
+    return a.x < b.x+b.w && a.x+a.w > b.x && a.y < b.y+b.h && a.y+a.h > b.y;
+  }
+  function expandedObstacle(obstacle,pad=3){
+    return {x:obstacle.x-pad,y:obstacle.y-pad,w:obstacle.w+pad*2,h:obstacle.h+pad*2};
+  }
+  function hitsObstacle(x,y){
+    const rect=robotRect(x,y);
+    return currentRoom().obstacles.some(ob=>intersects(rect,expandedObstacle(ob,2)));
+  }
+  function doorOpen(side,x=game.x,y=game.y){
+    if(side==="left" || side==="right") return Math.abs(y-BOARD_H/2)<=DOOR_HALF;
+    return Math.abs(x-BOARD_W/2)<=DOOR_HALF;
+  }
+  function hasNeighbor(side){
+    const delta={left:[-1,0],right:[1,0],top:[0,-1],bottom:[0,1]}[side];
+    return !!roomAt(game.roomX+delta[0],game.roomY+delta[1]);
+  }
+  function hitsOuterWall(x,y){
+    const r=robotRect(x,y);
+    if(r.x<0 && !(hasNeighbor("left")&&doorOpen("left",x,y))) return true;
+    if(r.x+r.w>BOARD_W && !(hasNeighbor("right")&&doorOpen("right",x,y))) return true;
+    if(r.y<0 && !(hasNeighbor("top")&&doorOpen("top",x,y))) return true;
+    if(r.y+r.h>BOARD_H && !(hasNeighbor("bottom")&&doorOpen("bottom",x,y))) return true;
+    return false;
+  }
+  function positionBlocked(x,y){ return hitsObstacle(x,y)||hitsOuterWall(x,y); }
+
+  function tryMoveAxis(dx,dy){
+    if(!dx&&!dy) return;
+    const nx=game.x+dx,ny=game.y+dy;
+    if(!positionBlocked(nx,ny)){
+      game.x=nx;game.y=ny;
+      game.collisionStatus="clear";
+    }else{
+      if(dx) game.vx=0;
+      if(dy) game.vy=0;
+      game.collisionStatus="blocked";
+    }
+  }
+
+  function repairOverlap(){
+    const rect=robotRect();
+    for(const ob of currentRoom().obstacles){
+      const box=expandedObstacle(ob,3);
+      if(!intersects(rect,box)) continue;
+      const pushLeft=(rect.x+rect.w)-box.x;
+      const pushRight=(box.x+box.w)-rect.x;
+      const pushUp=(rect.y+rect.h)-box.y;
+      const pushDown=(box.y+box.h)-rect.y;
+      const choices=[
+        {amount:pushLeft,dx:-pushLeft,dy:0},
+        {amount:pushRight,dx:pushRight,dy:0},
+        {amount:pushUp,dx:0,dy:-pushUp},
+        {amount:pushDown,dx:0,dy:pushDown}
+      ].filter(item=>item.amount>=0).sort((a,b)=>a.amount-b.amount);
+      let repaired=false;
+      for(const choice of choices){
+        const nx=game.x+choice.dx,ny=game.y+choice.dy;
+        if(!positionBlocked(nx,ny)){
+          game.x=nx;game.y=ny;repaired=true;break;
+        }
+      }
+      if(!repaired){
+        game.x=game.lastSafeX;game.y=game.lastSafeY;
+      }
+      game.overlapRepairStatus="repaired";
+      return true;
+    }
+    game.overlapRepairStatus="clear";
+    return false;
+  }
+
+  function nearestSafePoint(){
+    const candidates=[
+      [game.lastSafeX,game.lastSafeY],[400,260],[400,120],[400,400],
+      [140,260],[660,260],[200,130],[600,390],[200,390],[600,130]
+    ];
+    for(const [x,y] of candidates){
+      if(!positionBlocked(x,y)) return [x,y];
+    }
+    for(let radius=40;radius<360;radius+=30){
+      for(let angle=0;angle<Math.PI*2;angle+=Math.PI/8){
+        const x=400+Math.cos(angle)*radius;
+        const y=260+Math.sin(angle)*radius;
+        if(x>ROBOT_W&&x<BOARD_W-ROBOT_W&&y>ROBOT_H&&y<BOARD_H-ROBOT_H&&!positionBlocked(x,y)){
+          return [x,y];
+        }
+      }
+    }
+    return [400,260];
+  }
+
+  function runStuckGuard(movedDistance){
+    const driven=(microphoneActive||fallbackActive)&&signal.energy>SIGNAL_DEADZONE;
+    if(driven && movedDistance<.12) game.stuckFrames+=1;
+    else game.stuckFrames=Math.max(0,game.stuckFrames-2);
+
+    if(game.stuckFrames>105){
+      const [x,y]=nearestSafePoint();
+      game.x=x;game.y=y;game.vx=0;game.vy=0;game.stuckFrames=0;
+      game.stuckGuardStatus="auto-repositioned";
+    }else{
+      game.stuckGuardStatus=game.stuckFrames>40?"watching":"clear";
+    }
+  }
+
+  function transitionRoom(side){
+    if(game.doorCooldown>0 || !hasNeighbor(side)) return false;
+    const delta={left:[-1,0],right:[1,0],top:[0,-1],bottom:[0,1]}[side];
+    game.roomX+=delta[0];game.roomY+=delta[1];
+    if(side==="left") game.x=BOARD_W-ROBOT_W-DOOR_DEPTH;
+    if(side==="right") game.x=ROBOT_W+DOOR_DEPTH;
+    if(side==="top") game.y=BOARD_H-ROBOT_H-DOOR_DEPTH;
+    if(side==="bottom") game.y=ROBOT_H+DOOR_DEPTH;
+    game.lastSafeX=game.x;game.lastSafeY=game.y;
+    game.doorCooldown=.6;
+    game.lastDoor=side;
+    game.lastDoorStatus="transition";
+    game.roomTransitions+=1;
+    game.stuckFrames=0;
+    return true;
+  }
+
+  function checkDoorTransition(){
+    const r=robotRect();
+    if(r.x+r.w<0 && doorOpen("left")) return transitionRoom("left");
+    if(r.x>BOARD_W && doorOpen("right")) return transitionRoom("right");
+    if(r.y+r.h<0 && doorOpen("top")) return transitionRoom("top");
+    if(r.y>BOARD_H && doorOpen("bottom")) return transitionRoom("bottom");
+    game.lastDoorStatus="clear";
+    return false;
+  }
+
+  /* ---------- Game updates ---------- */
+  function startGameIfNeeded(){
+    if(game.started) return;
+    game.started=true;
+    game.startTime=performance.now();
+    lastFrameTime=performance.now();
+  }
+
+  function chooseMovement(){
+    const entries=[
+      ["left",signal.bass,-1,0,120],
+      ["right",signal.lowMid,1,0,420],
+      ["up",signal.mid,0,-1,1200],
+      ["down",signal.high,0,1,3600]
+    ].sort((a,b)=>b[1]-a[1]);
+    const top=entries[0];
+    if(signal.energy<SIGNAL_DEADZONE || top[1]<.035){
+      game.activeMoveName="rest";
+      game.lastMoveFrequency=Math.round(signal.peak);
+      return {dx:0,dy:0,strength:0};
+    }
+
+    let dx=top[2],dy=top[3],name=top[0];
+    const second=entries[1];
+    if(second[1]>top[1]*.74 && second[1]>.06){
+      dx+=second[2];dy+=second[3];
+      const length=Math.hypot(dx,dy)||1;
+      dx/=length;dy/=length;
+      name=`${top[0]} + ${second[0]}`;
+    }
+    const strength=Math.min(1,Math.max(.15,(top[1]-.03)*2.7+signal.energy*1.9));
+    game.activeMoveName=name;
+    game.lastMoveFrequency=Math.round(signal.peak||top[4]);
+    return {dx,dy,strength};
+  }
+
+  function updateRobot(dt){
+    const beforeX=game.x,beforeY=game.y;
+    const movement=chooseMovement();
+    const targetVX=movement.dx*MAX_SPEED*movement.strength;
+    const targetVY=movement.dy*MAX_SPEED*movement.strength;
+    const blend=Math.min(1,ACCELERATION*dt/MAX_SPEED);
+    game.vx+=(targetVX-game.vx)*blend;
+    game.vy+=(targetVY-game.vy)*blend;
+
+    if(movement.strength===0){
+      const damping=Math.pow(DRAG,dt*60);
+      game.vx*=damping;game.vy*=damping;
+    }
+
+    const speed=Math.hypot(game.vx,game.vy);
+    if(speed>MAX_SPEED){
+      game.vx=game.vx/speed*MAX_SPEED;
+      game.vy=game.vy/speed*MAX_SPEED;
+    }
+
+    tryMoveAxis(game.vx*dt,0);
+    tryMoveAxis(0,game.vy*dt);
+    repairOverlap();
+    checkDoorTransition();
+
+    const moved=Math.hypot(game.x-beforeX,game.y-beforeY);
+    runStuckGuard(moved);
+    if(!positionBlocked(game.x,game.y) && game.collisionStatus==="clear"){
+      game.lastSafeX=game.x;game.lastSafeY=game.y;
+    }
+    if(moved>.08) game.lastMoveName=game.activeMoveName;
+  }
+
+  function collectCrystals(){
+    for(const crystal of currentRoom().crystals){
+      if(game.crystals.has(crystal.id)) continue;
+      if(Math.hypot(game.x-crystal.x,game.y-crystal.y)<46){
+        game.crystals.add(crystal.id);
+        setStatus(`Signal crystal collected: ${game.crystals.size} of ${REQUIRED_CRYSTALS}.`,
+          microphoneActive?"active":fallbackActive?"demo":"inactive");
+      }
+    }
+  }
+
+  function checkPortal(){
+    if(game.roomX!==2||game.roomY!==0||game.crystals.size<REQUIRED_CRYSTALS) return;
+    if(Math.hypot(game.x-400,game.y-245)<66){
+      game.victory=true;
+      const seconds=Math.max(1,Math.round((performance.now()-game.startTime)/1000));
+      finalStats.textContent=`Crystals: ${game.crystals.size}/${REQUIRED_CRYSTALS} · Room transitions: ${game.roomTransitions} · Time: ${seconds} seconds.`;
+      victoryPanel.style.display="grid";
+    }
+  }
+
+  function update(dt){
+    if(!game.started||game.victory) return;
+    game.doorCooldown=Math.max(0,game.doorCooldown-dt);
+    if(microphoneActive&&analyser) readMicrophoneSignal();
+    else if(fallbackActive) readFallbackSignal(dt);
+    else clearSignal();
+    updateRobot(dt);
+    collectCrystals();
+    checkPortal();
+  }
+
+  /* ---------- Rendering ---------- */
+  function drawTerrain(room,time){
+    const [base,mid,bright]=room.palette;
+    ctx.fillStyle=base;ctx.fillRect(0,0,BOARD_W,BOARD_H);
+    const t=time*.001;
+
+    if(room.pattern==="grass"||room.pattern==="mud"){
+      ctx.strokeStyle=mid;ctx.lineWidth=2;
+      for(let y=24;y<BOARD_H;y+=28){
+        for(let x=18;x<BOARD_W;x+=30){
+          const sway=Math.sin(t*1.5+x*.03+y*.02)*3;
+          ctx.beginPath();ctx.moveTo(x,y+8);ctx.lineTo(x+sway,y);ctx.stroke();
+        }
+      }
+    }else if(room.pattern==="water"||room.pattern==="basin"){
+      ctx.strokeStyle=mid;ctx.lineWidth=2;
+      for(let y=18;y<BOARD_H;y+=24){
+        ctx.beginPath();
+        for(let x=0;x<=BOARD_W;x+=16){
+          const yy=y+Math.sin(x*.035+t*2+y*.02)*5;
+          x?ctx.lineTo(x,yy):ctx.moveTo(x,yy);
+        }
+        ctx.stroke();
+      }
+    }else{
+      ctx.strokeStyle=mid;ctx.lineWidth=1;
+      for(let x=0;x<BOARD_W;x+=40){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,BOARD_H);ctx.stroke()}
+      for(let y=0;y<BOARD_H;y+=40){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(BOARD_W,y);ctx.stroke()}
+      ctx.globalAlpha=.18;ctx.fillStyle=bright;
+      for(let i=0;i<40;i+=1){
+        const x=(i*137)%BOARD_W,y=(i*79)%BOARD_H;
+        ctx.fillRect(x,y,3,3);
+      }
+      ctx.globalAlpha=1;
+    }
+  }
+
+  function obstacleColors(type){
+    const map={
+      hedge:["#153d22","#2b7b43"],stone:["#333b42","#77838d"],pillar:["#1c434a","#3e8993"],
+      water:["#062c48","#1177a8"],tree:["#24160b","#75502b"],ridge:["#252c61","#6675d6"],
+      wall:["#32303b","#827993"],obelisk:["#28153e","#8b4dc2"],slab:["#173e59","#4d94bd"],
+      pool:["#4c1447","#b83aa7"]
+    };
+    return map[type]||["#333","#777"];
+  }
+
+  function drawObstacles(room){
+    for(const ob of room.obstacles){
+      const [dark,light]=obstacleColors(ob.type);
+      ctx.fillStyle="rgba(0,0,0,.38)";
+      ctx.fillRect(ob.x+7,ob.y+8,ob.w,ob.h);
+      const grad=ctx.createLinearGradient(ob.x,ob.y,ob.x+ob.w,ob.y+ob.h);
+      grad.addColorStop(0,light);grad.addColorStop(1,dark);
+      ctx.fillStyle=grad;ctx.fillRect(ob.x,ob.y,ob.w,ob.h);
+      ctx.strokeStyle="rgba(255,255,255,.32)";ctx.strokeRect(ob.x+.5,ob.y+.5,ob.w-1,ob.h-1);
+      ctx.globalAlpha=.18;ctx.fillStyle="#fff";
+      for(let y=ob.y+10;y<ob.y+ob.h;y+=18) ctx.fillRect(ob.x+8,y,Math.max(4,ob.w-16),2);
+      ctx.globalAlpha=1;
+    }
+  }
+
+  function drawDoors(){
+    const cx=BOARD_W/2,cy=BOARD_H/2;
+    const doorColor="#62f7ff";
+    ctx.save();
+    ctx.strokeStyle=doorColor;ctx.lineWidth=4;ctx.shadowBlur=12;ctx.shadowColor=doorColor;
+    if(hasNeighbor("top")){ctx.beginPath();ctx.moveTo(cx-DOOR_HALF,2);ctx.lineTo(cx+DOOR_HALF,2);ctx.stroke()}
+    if(hasNeighbor("bottom")){ctx.beginPath();ctx.moveTo(cx-DOOR_HALF,BOARD_H-2);ctx.lineTo(cx+DOOR_HALF,BOARD_H-2);ctx.stroke()}
+    if(hasNeighbor("left")){ctx.beginPath();ctx.moveTo(2,cy-DOOR_HALF);ctx.lineTo(2,cy+DOOR_HALF);ctx.stroke()}
+    if(hasNeighbor("right")){ctx.beginPath();ctx.moveTo(BOARD_W-2,cy-DOOR_HALF);ctx.lineTo(BOARD_W-2,cy+DOOR_HALF);ctx.stroke()}
+    ctx.restore();
+  }
+
+  function drawCrystals(time){
+    const pulse=1+.13*Math.sin(time*.006);
+    for(const crystal of currentRoom().crystals){
+      if(game.crystals.has(crystal.id)) continue;
+      ctx.save();ctx.translate(crystal.x,crystal.y);ctx.scale(pulse,pulse);
+      ctx.shadowBlur=20;ctx.shadowColor="#ffe066";
+      ctx.fillStyle="#ffe066";
+      ctx.beginPath();ctx.moveTo(0,-17);ctx.lineTo(13,0);ctx.lineTo(0,17);ctx.lineTo(-13,0);ctx.closePath();ctx.fill();
+      ctx.fillStyle="#fff";ctx.beginPath();ctx.moveTo(0,-12);ctx.lineTo(5,0);ctx.lineTo(0,6);ctx.closePath();ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  function drawPortal(time){
+    if(game.roomX!==2||game.roomY!==0) return;
+    const unlocked=game.crystals.size>=REQUIRED_CRYSTALS;
+    const pulse=4+3*Math.sin(time*.006);
+    ctx.save();ctx.translate(400,245);
+    ctx.shadowBlur=unlocked?25:8;ctx.shadowColor=unlocked?"#7dff99":"#ff6b6b";
+    ctx.strokeStyle=unlocked?"#7dff99":"#8c3940";
+    ctx.lineWidth=8;
+    ctx.beginPath();ctx.ellipse(0,0,48+pulse,70+pulse,0,0,Math.PI*2);ctx.stroke();
+    ctx.globalAlpha=.36;ctx.fillStyle=unlocked?"#7dff99":"#5a2028";
+    ctx.beginPath();ctx.ellipse(0,0,40,61,0,0,Math.PI*2);ctx.fill();
+    ctx.globalAlpha=1;ctx.fillStyle="#fff";ctx.font="bold 12px system-ui";ctx.textAlign="center";
+    ctx.fillText(unlocked?"FINAL PORTAL":"LOCKED",0,4);
+    ctx.restore();
+  }
+
+  function drawRobot(time){
+    const bob=Math.sin(time*.008)*2;
+    ctx.save();
+    ctx.translate(game.x,game.y+bob);
+    const angle=Math.atan2(game.vy,game.vx);
+    if(Math.hypot(game.vx,game.vy)>2) ctx.rotate(angle*.08);
+    ctx.shadowBlur=16;ctx.shadowColor="#ff78d7";
+    if(robotImageReady){
+      ctx.drawImage(robotImage,-ROBOT_W/2,-ROBOT_H/2,ROBOT_W,ROBOT_H);
+    }else{
+      ctx.fillStyle="#c9d4db";ctx.fillRect(-28,-17,56,34);
+      ctx.fillStyle="#62f7ff";ctx.fillRect(-20,-9,10,8);ctx.fillRect(10,-9,10,8);
+      ctx.fillStyle="#ff78d7";ctx.fillRect(-12,8,24,4);
+    }
+    ctx.restore();
+  }
+
+  function drawVisualizer(time){
+    if(visionSigil.value==="off") return;
+    const baseY=BOARD_H-94;
+    ctx.save();
+    ctx.fillStyle="rgba(0,0,0,.62)";ctx.fillRect(0,baseY,BOARD_W,94);
+    ctx.globalAlpha=.9;
+    if(visionSigil.value==="bars"){
+      const values=microphoneActive&&frequencyData.length?frequencyData:null;
+      const count=64,barW=BOARD_W/count;
+      for(let i=0;i<count;i+=1){
+        let value;
+        if(values){
+          const index=Math.min(values.length-1,Math.floor(i/count*values.length*.42));
+          value=values[index]/255;
+        }else{
+          const band=[signal.bass,signal.lowMid,signal.mid,signal.high][Math.floor(i/(count/4))]||0;
+          value=Math.min(1,band+.08*Math.sin(time*.004+i*.7));
+        }
+        const h=Math.max(2,value*82);
+        const hue=130+i*2.2;
+        ctx.fillStyle=`hsl(${hue} 90% 58%)`;
+        ctx.fillRect(i*barW,BOARD_H-h,Math.max(1,barW-1),h);
+      }
+    }else{
+      ctx.beginPath();
+      const samples=microphoneActive&&timeData.length?timeData:null;
+      for(let i=0;i<256;i+=1){
+        const x=i/255*BOARD_W;
+        let normalized;
+        if(samples){
+          const idx=Math.floor(i/256*samples.length);
+          normalized=(samples[idx]-128)/128;
+        }else{
+          normalized=Math.sin(i*.16+time*.006)*signal.energy*2.4;
+        }
+        const y=baseY+47+normalized*39;
+        i?ctx.lineTo(x,y):ctx.moveTo(x,y);
+      }
+      ctx.strokeStyle="#7dff99";ctx.lineWidth=2;ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  function drawMinimap(){
+    const size=24,gap=4,startX=BOARD_W-112,startY=104;
+    ctx.save();
+    ctx.fillStyle="rgba(0,0,0,.74)";ctx.fillRect(startX-8,startY-8,3*size+2*gap+16,3*size+2*gap+16);
+    for(let y=0;y<3;y+=1){
+      for(let x=0;x<3;x+=1){
+        const room=roomAt(x,y);
+        if(!room) continue;
+        ctx.fillStyle=x===game.roomX&&y===game.roomY?"#62f7ff":"#29343b";
+        ctx.fillRect(startX+x*(size+gap),startY+y*(size+gap),size,size);
+        ctx.strokeStyle="#b8d9e6";ctx.strokeRect(startX+x*(size+gap)+.5,startY+y*(size+gap)+.5,size-1,size-1);
+        if(room.crystals.some(c=>!game.crystals.has(c.id))){
+          ctx.fillStyle="#ffe066";ctx.fillRect(startX+x*(size+gap)+9,startY+y*(size+gap)+9,6,6);
+        }
+      }
+    }
+    ctx.restore();
+  }
+
+  function updateHud(){
+    const room=currentRoom();
+    roomHud.innerHTML=
+      `<b>${room.name}</b><br>`+
+      `Objective: ${room.objective}<br>`+
+      `Crystals: ${game.crystals.size} / ${REQUIRED_CRYSTALS}<br>`+
+      `Room: ${game.roomX},${game.roomY}<br>`+
+      `<span style="color:#9ff">No keyboard player movement</span><br>`+
+      `<span style="color:#7dff99">Collision: ${game.collisionStatus} · Repair: ${game.overlapRepairStatus} · Stuck guard: ${game.stuckGuardStatus}</span>`;
+
+    const source=microphoneActive?"LIVE":fallbackActive?"DEMO":"WAITING";
+    signalHud.innerHTML=
+      `<b>Signal:</b> ${source}<br>`+
+      `Filter: ${voiceSigil.options[voiceSigil.selectedIndex].text}<br>`+
+      `Energy: ${signal.energy.toFixed(3)} · Peak: ${Math.round(signal.peak)} Hz<br>`+
+      `pos: ${Math.round(game.x)}, ${Math.round(game.y)} · move: ${game.lastMoveName}<br>`+
+      `Active move: ${game.activeMoveName}<br>`+
+      `Door: ${game.lastDoor} · ${game.lastDoorStatus} · Cooldown: ${game.doorCooldown.toFixed(1)}<br>`+
+      `Stuck frames: ${game.stuckFrames}`;
+  }
+
+  function drawPaused(){
+    ctx.fillStyle="rgba(0,0,0,.72)";ctx.fillRect(0,0,BOARD_W,BOARD_H);
+    ctx.fillStyle="#fff";ctx.font="bold 30px system-ui";ctx.textAlign="center";
+    ctx.fillText("VISUALS PAUSED",BOARD_W/2,BOARD_H/2);
+    ctx.font="15px system-ui";ctx.fillText("Microphone tracks are stopped automatically when the page is hidden.",BOARD_W/2,BOARD_H/2+34);
+    ctx.textAlign="start";
+  }
+
+  function render(time){
+    const room=currentRoom();
+    drawTerrain(room,time);
+    drawObstacles(room);
+    drawDoors();
+    drawCrystals(time);
+    drawPortal(time);
+    drawRobot(time);
+    drawVisualizer(time);
+    drawMinimap();
+    updateHud();
+  }
+
+  function frame(time){
+    const dt=Math.min(.05,Math.max(0,(time-lastFrameTime)/1000||.016));
+    lastFrameTime=time;
+    if(!visualsPaused){
+      update(dt);
+      render(time);
+    }else{
+      drawPaused();
+    }
+    rafId=requestAnimationFrame(frame);
+  }
+
+  /* ---------- Reset and cleanup ---------- */
+  function resetGame(){
+    game.roomX=1;game.roomY=1;game.x=400;game.y=250;game.vx=0;game.vy=0;
+    game.started=false;game.victory=false;game.startTime=0;game.roomTransitions=0;
+    game.crystals.clear();game.doorCooldown=0;game.lastDoor="none";game.lastDoorStatus="clear";
+    game.collisionStatus="clear";game.overlapRepairStatus="ready";game.stuckGuardStatus="ready";
+    game.stuckFrames=0;game.lastSafeX=400;game.lastSafeY=250;game.lastMoveName="rest";
+    game.activeMoveName="rest";game.lastMoveFrequency=0;
+    fallbackPhase=0;victoryPanel.style.display="none";
+    titlePanel.style.display=(microphoneActive||fallbackActive)?"none":"grid";
+    if(microphoneActive||fallbackActive) startGameIfNeeded();
+  }
+
+  function stopAllAudio(message){
+    stopMicrophone(message);
+    stopRobotTone();
+  }
+
+  consentCheck.addEventListener("change",()=>{
+    if(!consentCheck.checked && (microphoneActive||microphoneStarting)){
+      stopMicrophone("Microphone stopped because the permission box was unchecked.");
+    }
+    updateControls();
+    if(consentCheck.checked) setStatus("Permission box checked. Press a dedicated Start Microphone button when ready.","inactive");
+    else if(!fallbackActive) setStatus("Microphone inactive. Review the notice and check the permission box to enable microphone startup.","inactive");
+  });
+
+  startMicButton.addEventListener("click",startMicrophone);
+  startPanelButton.addEventListener("click",startMicrophone);
+  stopMicButton.addEventListener("click",()=>stopMicrophone());
+  startFallbackButton.addEventListener("click",startFallback);
+  stopFallbackButton.addEventListener("click",stopFallback);
+  demoPanelButton.addEventListener("click",startFallback);
+  pauseVisualsButton.addEventListener("click",()=>{
+    visualsPaused=!visualsPaused;
+    updateControls();
+  });
+  startToneButton.addEventListener("click",startRobotTone);
+  stopToneButton.addEventListener("click",stopRobotTone);
+  resetGameButton.addEventListener("click",resetGame);
+  againButton.addEventListener("click",resetGame);
+  voiceSigil.addEventListener("change",applyVoiceFilter);
+  visionSigil.addEventListener("change",()=>{});
+
+  /* No document/body/window/canvas click listener starts the microphone. */
+
+  document.addEventListener("visibilitychange",()=>{
+    if(document.hidden){
+      stopAllAudio("Microphone and optional tone stopped automatically because the page was hidden.");
+    }
+  });
+  window.addEventListener("pagehide",()=>{
+    stopAllAudio("Microphone and optional tone stopped because the page was exited.");
+    if(rafId!==null){cancelAnimationFrame(rafId);rafId=null}
+  },{once:true});
+  window.addEventListener("beforeunload",()=>{
+    stopMicTracks();
+    disconnectMicNodes();
+    stopRobotTone();
+  },{once:true});
+
+  const reducedMotion=window.matchMedia?.("(prefers-reduced-motion: reduce)");
+  if(reducedMotion?.matches){
+    visualsPaused=true;
+    setStatus("Reduced-motion preference detected. Visuals begin paused; the microphone is inactive.","inactive");
+  }
+
+  updateControls();
+  resetGame();
+  lastFrameTime=performance.now();
+  rafId=requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
