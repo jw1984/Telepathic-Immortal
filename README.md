@@ -7,15 +7,25 @@ The author is not a lawyer, and nothing in this repository constitutes legal, me
 
 Any references to laws, regulations, or compliance frameworks are informational only and do not imply certification, approval, or legal guarantees.
 
-📜 License & Copyright
+## License and Copyright
 
-Copyright © 2025 Jesse Wyer
+Copyright © 2025 Jesse Wyer.
 
-This repository, including its source code, documentation, images, and conceptual materials, is provided for personal, educational, and non-commercial use only.
+Except where a file or third-party notice states otherwise, the author’s original source code, documentation, and original project assets in this repository are made available under the **PolyForm Noncommercial License 1.0.0**. See `LICENSE.txt` for the complete and controlling license terms.
 
-You may view, study, and modify the materials for learning or research purposes. Commercial use, resale, redistribution, sublicensing, or inclusion in a commercial product is not permitted without prior written authorization from the author.
+The license permits qualifying noncommercial use, study, modification, and redistribution subject to its full terms and notice requirements. It does not grant permission for commercial use.
 
-Licensing inquiries: 📧 wyerjess888@gmail.com
+Commercial licensing inquiries:
+
+**Jesse Wyer**
+**[wyerjess888@gmail.com](mailto:wyerjess888@gmail.com)**
+
+This project is **source-available under a noncommercial license**. It is not an OSI-approved open-source project and should not be described as open source.
+
+The author retains ownership of the author’s original contributions and may use, modify, distribute, or separately license those contributions.
+
+Materials identified as third-party content are not relicensed under the project license and remain subject to their respective licenses and ownership rights.
+
 
 This is a proprietary educational license and is not an OSI-approved open-source license.
 
