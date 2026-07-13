@@ -82,3 +82,13 @@ Human oversight is required at all times.
 Nothing in this repository constitutes legal advice or creates any attorney-client relationship.
 
 Users are solely responsible for lawful, ethical, and safe use of this project.
+
+Biometric and speaker-identification limitation
+
+This project does not create voiceprints, identify speakers, recognize
+returning users from their voices, perform voice authentication, or store
+voice templates. Microphone-derived frequency values are used only for
+temporary game control and visualization.
+
+Do not modify this project to identify or authenticate individuals from
+their voices without obtaining a separate legal and privacy review.
