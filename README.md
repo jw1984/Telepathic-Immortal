@@ -1,7 +1,7 @@
 “Telepathic Immortal” is a fictional and artistic project title. The software
 does not detect thoughts, telepathy, consciousness, emotions, intentions,
 truthfulness, identity, medical conditions, or supernatural abilities.
-Microphone input is used only for temporary audio-reactive game controls and
+Microphone input is used only for temporary audio-reactive game controls, robotic controls and
 visual effects.
 
 Informational Use Only
