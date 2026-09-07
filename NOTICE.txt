@@ -1,12 +1,33 @@
-Required Notice: Copyright © 2025 Jesse Wyer.
+TELEPATHIC-IMMORTAL NOTICE
 
-Required Notice: Telepathic-Immortal is made available under the PolyForm Noncommercial License 1.0.0.
+Required Notice: Copyright © 2025–2026 Jesse Wyer.
 
-Commercial use is not granted under the noncommercial license. To request a separate commercial license, contact:
+Required Notice: Telepathic-Immortal is made available under the Telepathic-Immortal Custom Noncommercial Source-Available License Version 1.0. The complete and controlling terms are in LICENSE.txt.
+
+Required Notice: Commercial use is not granted by the custom noncommercial license. A separate written commercial license from Jesse Wyer is required for commercial use of the Author's original Project material.
+
+Required Notice: This project is source-available under a custom noncommercial license and is not an OSI-approved open-source project.
+
+AUTHOR'S RETAINED RIGHTS
+
+And, the author always wants free to make his own projects using this github project.
+
+For clarity, Jesse Wyer retains ownership of Jesse Wyer's original contributions and remains free to use, copy, modify, develop, distribute, commercialize, sell, or separately license those original contributions and future versions of them.
+
+Nothing in the project license restricts the Author's own use of the Author's original work.
+
+THIRD-PARTY MATERIALS
+
+Third-party materials, where present, remain subject to their respective owners' licenses and rights. Their appearance in this repository does not automatically place them under the Telepathic-Immortal project license.
+
+TRADEMARKS AND ENDORSEMENT
+
+No trademark, service-mark, trade-name, sponsorship, certification, or endorsement rights are granted except for reasonable use of the project name for identification and required attribution.
+
+COMMERCIAL LICENSING CONTACT
 
 Jesse Wyer
 [wyerjess888@gmail.com](mailto:wyerjess888@gmail.com)
 
-The author retains ownership of the author’s original contributions and may use, modify, distribute, or separately license those original contributions without restriction.
+Sending a licensing inquiry does not grant commercial permission. Commercial permission exists only through a separate written agreement.
 
-Third-party materials, where present, remain subject to their respective owners’ licenses and rights.
