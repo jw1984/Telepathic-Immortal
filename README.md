@@ -1,135 +1,164 @@
-“Telepathic Immortal” is a fictional and artistic project title. The software
-does not detect thoughts, telepathy, consciousness, emotions, intentions,
-truthfulness, identity, medical conditions, or supernatural abilities.
-Microphone input is used only for temporary audio-reactive game controls, robotic controls and
-visual effects.
+# Telepathic-Immortal
 
-Informational Use Only
+**A fictional audio-reactive art and game project**
 
-This repository is provided for informational, educational, and artistic purposes only.
+Telepathic-Immortal is an experimental browser-based art and game project in which microphone-derived audio activity can influence a fictional robot, visualizations, game movement, and related effects.
 
-The author is not a lawyer, and nothing in this repository constitutes legal, medical, regulatory, or professional advice. Users are responsible for understanding and complying with all applicable laws and regulations in their jurisdiction. For legal guidance, consult a licensed attorney.
+## Fictional and Artistic Project
 
-Any references to laws, regulations, or compliance frameworks are informational only and do not imply certification, approval, or legal guarantees.
+"Telepathic Immortal" is a fictional and artistic project title.
 
-## License and Copyright
+The software does not detect or prove:
 
-Copyright © 2025 Jesse Wyer.
+* thoughts;
+* telepathy;
+* consciousness;
+* emotions or intentions;
+* truthfulness;
+* identity;
+* medical or psychological conditions; or
+* supernatural abilities.
 
-Except where a file or third-party notice states otherwise, the author’s original source code, documentation, and original project assets in this repository are made available under the **PolyForm Noncommercial License 1.0.0**. See `LICENSE.txt` for the complete and controlling license terms.
+Terms such as "telepathic," "immortal," "awareness," "mood," "soul," or similar language that may appear in artwork, story material, filenames, comments, or experimental interfaces are fictional, artistic, or metaphorical unless clearly stated otherwise.
 
-The license permits qualifying noncommercial use, study, modification, and redistribution subject to its full terms and notice requirements. It does not grant permission for commercial use.
+The project is not a scientific instrument, medical device, lie detector, biometric identification system, surveillance system, or proof of telepathy.
 
-Commercial licensing inquiries:
+## Experimental Status
 
-**Jesse Wyer**
-**[wyerjess888@gmail.com](mailto:wyerjess888@gmail.com)**
+This repository contains experimental prototypes and development versions.
 
-This project is **source-available under a noncommercial license**. It is not an OSI-approved open-source project and should not be described as open source.
+Older files may remain in the repository for historical or development purposes and may not reflect the newest privacy, accessibility, or microphone design.
 
-The author retains ownership of the author’s original contributions and may use, modify, distribute, or separately license those contributions.
+A file's presence in the repository does not mean that it has been certified as legally compliant, secure, accessible, production-ready, or suitable for a particular use.
 
-Materials identified as third-party content are not relicensed under the project license and remain subject to their respective licenses and ownership rights.
+## Microphone Use
 
+Microphone-enabled versions of the project should keep microphone access off by default and request access only after a user intentionally activates a clearly labeled microphone control and approves the browser's permission request.
 
-This project is source-available under the PolyForm Noncommercial License 1.0.0 and is not an OSI-approved open-source project.
+Current recommended designs should also provide a way to stop microphone access and should stop active microphone tracks when microphone use ends.
 
-Some explanatory text and conceptual descriptions were created with the assistance of OpenAI’s ChatGPT.
+Do not activate a microphone where another person's private conversation may be captured unless all required consent has been obtained.
 
-All final decisions regarding implementation, structure, design, creative direction, and intellectual property ownership belong solely to Jesse Wyer. Use of AI tools does not transfer authorship or ownership.
+Washington law generally restricts interception or recording of private communications or conversations without the consent required by law. This repository does not provide legal advice, and users are responsible for the laws that apply to their own use.
 
-This project is an experimental, educational, and artistic prototype. It is not a certified consumer product, medical device, scientific instrument, safety system, or commercial robotics platform.
+## Privacy
 
-This software is provided “AS IS”, without warranties of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, or non-infringement.
+See [PRIVACY.md](PRIVACY.md) for the project's full privacy notice.
 
-The author assumes no liability for any damages, losses, or issues arising from use, modification, or misuse of this project, including but not limited to:
+The project's application code is designed to process microphone-derived information temporarily within the browser for audio-reactive interaction. It is not designed to create or retain microphone recordings or transmit microphone audio or microphone-derived values to the project author.
 
-personal injury or death
+The browser, operating system, GitHub, GitHub Pages, internet provider, extensions, or other third parties may independently process ordinary connection, security, permission, or technical information under their own terms and privacy policies.
 
-property damage
+Do not interpret statements about the project code as guarantees about independent third-party services.
 
-device malfunction
+## No Speaker Identification or Voiceprints
 
-legal or regulatory violations
+The project is not designed to:
 
-Use of this project is entirely at the user’s own risk.
+* identify speakers;
+* create or store voiceprints;
+* perform voice authentication;
+* recognize returning users by voice;
+* attribute microphone input to a named person; or
+* create a biometric identity profile.
 
-If users enable microphone access while using this software:
+Microphone-derived frequency or signal values are intended only for temporary game control, visualization, and experimental audio-reactive behavior.
 
-Microphone access is controlled by the user’s web browser
+Do not add speaker-identification, voice-authentication, or biometric features without a separate technical, privacy, and legal review.
 
-Users are responsible for obtaining all required consent
+## Children's Privacy
 
-This project does not record, store, transmit, or upload audio data.
+Telepathic-Immortal is intended as a general-audience experimental art and game project. It is not designed, marketed, or directed specifically to children under 13.
 
-Any references to “telepathic” behavior are artistic and metaphorical, not legal, scientific, or surveillance claims.
+The project is not intentionally designed to request a user's name, age, date of birth, account credentials, address, photograph, audio upload, or other user-submitted personal information.
 
-This project operates locally within the user’s browser.
+Children under 13 should not use microphone-enabled features without the permission and supervision of a parent or legal guardian.
 
-No personal data is collected
+This statement describes the project's intended audience and design. It is not a certification or guarantee of compliance with the Children's Online Privacy Protection Act or any other law.
 
-No audio recordings are stored
+The privacy and legal requirements must be reviewed again before adding features such as accounts, advertising, analytics, persistent identifiers, user uploads, stored recordings, cloud audio processing, child-directed marketing, or collection of personal information.
 
-No analytics or tracking are used
+## Safety and Prohibited Uses
 
-No backend servers are involved
+This repository is an experimental art and software project.
 
-Audio input, if enabled by the user, is processed locally for visualization or interaction only.
+Do not use it for:
 
-Users are responsible for complying with all applicable privacy and consent laws.
+* surveillance or spying;
+* secret recording or interception;
+* non-consensual monitoring;
+* harassment or intimidation;
+* deceptive claims of mind-reading, sentience, consciousness, or medical capability;
+* identification or authentication of individuals by voice;
+* weaponization or control of dangerous machinery; or
+* safety-critical, medical, emergency, or life-support applications.
 
-This project explores experimental audio-reactive and algorithmic behaviors.
+Human oversight is required for any physical-device experimentation.
 
-Do not to use this project for:
+Users are responsible for lawful, ethical, and safe use.
 
-surveillance or spying
+## License
 
-harassment or intimidation
+Copyright © 2025–2026 Jesse Wyer.
 
-non-consensual monitoring
+Except where a file or third-party notice states otherwise, the Author's original material in this repository is made available under the **Telepathic-Immortal Custom Noncommercial Source-Available License Version 1.0**.
 
-weaponization or harmful machinery
+See [LICENSE.txt](LICENSE.txt) for the complete and controlling terms.
 
-deceptive claims of sentience or consciousness
+In summary:
 
-Human oversight is required at all times.
+* personal, educational, research, hobby, and other qualifying noncommercial uses are permitted under the License;
+* noncommercial modification and redistribution are permitted when the License, copyright notices, and required notices are preserved;
+* commercial use is not granted;
+* commercial use requires a separate written license from Jesse Wyer; and
+* the Author remains free to use, modify, distribute, commercialize, sell, and separately license the Author's own original contributions.
 
-Nothing in this repository constitutes legal advice or creates any attorney-client relationship.
+This summary does not replace LICENSE.txt.
 
-Users are solely responsible for lawful, ethical, and safe use of this project.
+This project is **source-available under a custom noncommercial license**. It is not an OSI-approved open-source project and should not be described as open source.
 
-Biometric and speaker-identification limitation
+GitHub's own Terms of Service may independently permit users to view and fork public repositories through GitHub's functionality. A public GitHub fork does not, by itself, grant commercial rights under LICENSE.txt.
 
-This project does not create voiceprints, identify speakers, recognize
-returning users from their voices, perform voice authentication, or store
-voice templates. Microphone-derived frequency values are used only for
-temporary game control and visualization.
+## Third-Party Materials
 
-## Children’s Privacy
+The project license applies only to material that Jesse Wyer owns or has authority to license under those terms.
 
-Telepathic-Immortal is an experimental, general-audience art and game project. It is not designed, marketed, or directed specifically to children under 13.
+Third-party code, images, audio, fonts, libraries, trademarks, or other materials remain subject to their respective owners' licenses and rights.
 
-The application does not intentionally request a user’s:
+Do not assume that an asset is covered by the project license merely because it appears in this repository.
 
-* Name
-* Age or date of birth
-* Email address
-* Mailing address
-* Account information
-* Photograph
-* Audio upload
-* Other user-submitted personal information
+Where applicable, third-party attribution and provenance should be documented in a separate notice or asset-provenance file.
 
-The microphone-enabled pages are designed to process live microphone input temporarily within the user’s browser for game control and visual effects. They are not designed to create audio recordings, retain microphone audio, upload microphone audio, identify speakers, or create voiceprints.
+## Contributions
 
-Children under 13 should not activate a microphone-enabled feature without the supervision and permission of a parent or legal guardian. The microphone should not be activated where another person’s private conversation could be captured unless everyone involved has agreed.
+Unless a separate written contributor agreement says otherwise, contributions knowingly submitted for inclusion in this repository are expected to be distributed under the repository's custom noncommercial license.
 
-This project currently does not include user accounts, advertising, behavioral tracking, user uploads, stored microphone recordings, voice authentication, or age and birth-date collection.
+Contributors must have the right to submit their contributions.
 
-This section describes the project’s intended design and data practices. It is not a claim, certification, or guarantee that the project complies with every requirement of the Children’s Online Privacy Protection Act or any other law.
+Contributors retain ownership of their own contributions unless they separately agree otherwise.
 
-The project’s privacy and legal requirements must be reviewed again before adding features such as accounts, advertising, analytics, persistent identifiers, user uploads, stored recordings, cloud audio processing, child-directed marketing, or collection of personal information.
+The Author's freedom to commercially license the Author's own original work does not automatically provide unrestricted commercial rights to a third party's contribution.
 
+## AI-Assisted Material
 
-Do not modify this project to identify or authenticate individuals from
-their voices without obtaining a separate legal and privacy review.
+Some explanatory text, conceptual descriptions, code suggestions, or other development material may have been created with the assistance of AI tools, including ChatGPT.
+
+No claim is made to copyright, ownership, or other rights that applicable law does not provide. The project author remains responsible for deciding what material is included in this repository and for complying with applicable third-party rights and licenses.
+
+## No Warranty
+
+This project is provided for experimental, informational, educational, and artistic purposes.
+
+To the fullest extent permitted by law, it is provided "AS IS" and without warranties. See LICENSE.txt for the controlling warranty and liability terms.
+
+Nothing in this repository constitutes legal, medical, regulatory, scientific, financial, or other professional advice.
+
+References to laws or compliance efforts are informational only and do not constitute certification, government approval, or a guarantee of legal compliance.
+
+## Contact
+
+Project and commercial licensing inquiries:
+
+Jesse Wyer
+[wyerjess888@gmail.com](mailto:wyerjess888@gmail.com)
+
