@@ -32,7 +32,7 @@ The author retains ownership of the author’s original contributions and may us
 Materials identified as third-party content are not relicensed under the project license and remain subject to their respective licenses and ownership rights.
 
 
-This is a proprietary educational license and is not an OSI-approved open-source license.
+This project is source-available under the PolyForm Noncommercial License 1.0.0 and is not an OSI-approved open-source project.
 
 Some explanatory text and conceptual descriptions were created with the assistance of OpenAI’s ChatGPT.
 
