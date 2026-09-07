@@ -1,59 +1,215 @@
-PolyForm Noncommercial License 1.0.0
-https://polyformproject.org/licenses/noncommercial/1.0.0
+Telepathic-Immortal Custom Noncommercial Source-Available License
+Version 1.0
 
-Acceptance
-In order to get any license under these terms, you must agree to them as both strict obligations and conditions to all your licenses.
+Copyright © 2025–2026 Jesse Wyer.
+All rights reserved except for the permissions expressly granted below.
 
-Copyright License
-The licensor grants you a copyright license for the software to do everything you might do with the software that would otherwise infringe the licensor's copyright in it for any permitted purpose. However, you may only distribute the software according to Distribution License and make changes or new works based on the software according to Changes and New Works License.
+IMPORTANT: This is a custom source-available, noncommercial license. It is not an OSI-approved open-source license.
 
-Distribution License
-The licensor grants you an additional copyright license to distribute copies of the software. Your license to distribute covers distributing the software with changes and new works permitted by Changes and New Works License.
+### 1. DEFINITIONS
 
-Notices
-You must ensure that anyone who gets a copy of any part of the software from you also gets a copy of these terms or the URL for them above, as well as copies of any plain-text lines beginning with Required Notice: that the licensor provided with the software. For example:
+"Author" means Jesse Wyer.
 
-Required Notice: Copyright Yoyodyne, Inc. (http://example.com)
+"Project" means the original source code, documentation, and other original materials in the Telepathic-Immortal repository that are owned by the Author. The Project does not include third-party materials that the Author does not own or have authority to license.
 
-Changes and New Works License
-The licensor grants you an additional copyright license to make changes and new works based on the software for any permitted purpose.
+"Noncommercial Purpose" means a use that is not primarily intended for commercial advantage, monetary compensation, revenue generation, or operation of a for-profit product or service.
 
-Patent License
-The licensor grants you a patent license for the software that covers patent claims the licensor can license, or becomes able to license, that you would infringe by using the software.
+"Commercial Use" includes, without limitation:
 
-Noncommercial Purposes
-Any noncommercial purpose is a permitted purpose.
+(a) selling, renting, licensing, sublicensing, or charging for the Project or a modified version of the Project;
 
-Personal Uses
-Personal use for research, experiment, and testing for the benefit of public knowledge, personal study, private entertainment, hobby projects, amateur pursuits, or religious observance, without any anticipated commercial application, is use for a permitted purpose.
+(b) including the Project or a modified version in a paid product, paid service, paid subscription, paid download, paid course, commercial hardware product, or revenue-generating platform;
 
-Noncommercial Organizations
-Use by any charitable organization, educational institution, public research organization, public safety or health organization, environmental protection organization, or government institution is use for a permitted purpose regardless of the source of funding or obligations resulting from the funding.
+(c) using the Project to provide paid consulting, paid development, hosted services, software-as-a-service, or other compensated services;
 
-Fair Use
-You may have "fair use" rights for the software under the law. These terms do not limit them.
+(d) distributing or operating the Project in a way that is directly monetized by advertising, sponsorship, affiliate revenue, or similar commercial arrangements;
 
-No Other Rights
-These terms do not allow you to sublicense or transfer any of your licenses to anyone else, or prevent the licensor from granting licenses to anyone else. These terms do not imply any other licenses.
+(e) using the Project in production by or for a for-profit business, except for limited internal evaluation or testing solely to decide whether to request a separate commercial license; or
 
-Patent Defense
-If you make any written claim that the software infringes or contributes to infringement of any patent, your patent license for the software granted under these terms ends immediately. If your company makes such a claim, your patent license ends immediately for work on behalf of your company.
+(f) otherwise using the Project primarily to obtain commercial advantage or monetary compensation.
 
-Violations
-The first time you are notified in writing that you have violated any of these terms, or done anything with the software not covered by your licenses, your licenses can nonetheless continue if you come into full compliance with these terms, and take practical steps to correct past violations, within 32 days of receiving notice. Otherwise, all your licenses end immediately.
+### 2. ACCEPTANCE
 
-No Liability
-As far as the law allows, the software comes as is, without any warranty or condition, and the licensor will not be liable to you for any damages arising out of these terms or the use or nature of the software, under any kind of legal claim.
+You do not need this License for rights you already have under applicable law or under GitHub's own terms for public repositories. However, by exercising any permission granted by this License, you agree to comply with all of its terms.
 
-Definitions
-The licensor is the individual or entity offering these terms, and the software is the software the licensor makes available under these terms.
+### 3. NONCOMMERCIAL LICENSE GRANT
 
-You refers to the individual or entity agreeing to these terms.
+Subject to this License, the Author grants you a nonexclusive, worldwide, royalty-free, revocable-upon-breach copyright license to:
 
-Your company is any legal entity, sole proprietorship, or other kind of organization that you work for, plus all organizations that have control over, are under the control of, or are under common control with that organization. Control means ownership of substantially all the assets of an entity, or the power to direct its management and policies by vote, contract, or otherwise. Control can be direct or indirect.
+(a) view, run, study, and test the Project;
 
-Your licenses are all the licenses granted to you for the software under these terms.
+(b) make copies of the Project;
 
-Use means anything you do with the software requiring one of your licenses.
+(c) modify the Project and create derivative works; and
 
-© PolyForm Project Inc.
+(d) distribute the Project or your modified versions,
+
+but only for a Noncommercial Purpose and only while you comply with this License.
+
+### 4. PERMITTED NONCOMMERCIAL USES
+
+Examples of permitted uses include:
+
+(a) personal study and experimentation;
+
+(b) private entertainment and hobby projects;
+
+(c) classroom teaching and student projects;
+
+(d) academic and public-interest research;
+
+(e) use by nonprofit organizations and public or nonprofit educational institutions, provided the Project is not being sold or used as a commercial product or service; and
+
+(f) noncommercial GitHub forks, demonstrations, reviews, and research copies that comply with the attribution and notice requirements below.
+
+An educational institution does not lose permission merely because it charges tuition or receives grants, so long as the particular use of the Project is educational or research-oriented rather than a commercial exploitation of the Project.
+
+### 5. COMMERCIAL USE REQUIRES SEPARATE WRITTEN PERMISSION
+
+No Commercial Use is granted by this License.
+
+You must obtain a separate written commercial license from the Author before making any Commercial Use of the Author's Project material.
+
+A commercial license is not automatically granted, and the Author is not obligated to offer one.
+
+### 6. PUBLIC GITHUB REPOSITORY AND FORKS
+
+The Project may be made publicly visible on GitHub. GitHub's terms may give GitHub and GitHub users certain rights to view, display, reproduce, or fork public repository content through GitHub's service.
+
+Nothing in this License is intended to take away rights that GitHub's terms or applicable law independently provide.
+
+A GitHub fork or other access through GitHub does not, by itself, grant Commercial Use rights under this License.
+
+### 7. DISTRIBUTION AND MODIFIED VERSIONS
+
+If you distribute any copy or modified version of the Project under this License, you must:
+
+(a) include a copy of this LICENSE.txt file;
+
+(b) preserve all applicable copyright notices;
+
+(c) preserve NOTICE.txt and every line beginning with "Required Notice:";
+
+(d) clearly identify material changes you made;
+
+(e) not state or imply that the Author endorses your modified version, organization, product, or service; and
+
+(f) not use additional terms to remove or contradict the restrictions of this License as they apply to the Author's original Project material.
+
+You may apply separate terms to your own original additions, but those terms do not replace this License for the Author's original Project material.
+
+Each recipient receives any rights in the Author's Project material directly under this License. You may not sublicense the Author's rights except as expressly permitted by this section.
+
+### 8. ATTRIBUTION
+
+Reasonable attribution must be retained in redistributed copies and modified versions.
+
+Attribution should identify:
+
+Telepathic-Immortal
+Copyright © 2025–2026 Jesse Wyer
+Licensed under the Telepathic-Immortal Custom Noncommercial Source-Available License Version 1.0.
+
+### 9. NO TRADEMARK OR ENDORSEMENT LICENSE
+
+This License does not grant any trademark, service-mark, trade-name, publicity, or endorsement rights.
+
+You may use the name "Telepathic-Immortal" only as reasonably necessary to identify the Project, describe its origin, or provide required attribution.
+
+You may not use the Author's name or the Project name in a manner that falsely suggests sponsorship, certification, approval, affiliation, or endorsement.
+
+### 10. NO PATENT LICENSE
+
+No patent license is granted by this License.
+
+If the Author later chooses to grant patent rights, those rights must be stated in a separate written agreement.
+
+### 11. THIRD-PARTY MATERIALS
+
+This License applies only to Project material that the Author owns or has authority to license under these terms.
+
+Third-party code, images, audio, fonts, libraries, trademarks, or other materials remain subject to their own licenses and rights.
+
+You are responsible for complying with those third-party terms.
+
+### 12. CONTRIBUTIONS
+
+Unless a separate written contributor agreement says otherwise, a person who knowingly submits a contribution for inclusion in this repository represents that the person has the right to submit it and agrees that the contribution may be distributed under this License.
+
+Contributors retain ownership of their own contributions unless they separately agree otherwise.
+
+The Author's retained rights in Section 13 apply to the Author's own original contributions. They do not automatically give the Author unrestricted commercial rights in a third party's contribution.
+
+### 13. AUTHOR'S RETAINED FREEDOM AND OWNERSHIP
+
+And, the author always wants free to make his own projects using this github project.
+
+For clarity, the Author retains all ownership rights in the Author's original contributions and remains free to use, copy, modify, develop, distribute, commercialize, sell, or separately license those original contributions and any future versions of them without restriction from this License.
+
+Nothing in this License restricts the Author's own use of the Author's original work, prevents the Author from granting different licenses to other people, or requires the Author to release future versions under the same terms.
+
+### 14. NO CLAIM TO IDEAS OR RIGHTS THE LAW DOES NOT PROVIDE
+
+This License does not restrict fair use, fair dealing, independent creation, facts, ideas, concepts, methods, systems, functionality, or other material that copyright law does not give the Author the right to control.
+
+Nothing in this License is intended to claim ownership of third-party material or rights that the Author does not legally possess.
+
+### 15. LAWFUL AND SAFE USE
+
+You are responsible for using the Project lawfully and safely.
+
+This License does not authorize surveillance, unlawful interception or recording, harassment, unauthorized access, infringement of privacy or publicity rights, infringement of intellectual-property rights, or any other unlawful activity.
+
+You are responsible for obtaining any permissions, consents, licenses, permits, or approvals required for your own use.
+
+### 16. TERMINATION AND CURE
+
+Your permissions under this License terminate automatically if you materially violate its terms.
+
+For a first violation, if the Author gives you written notice of the violation, your permissions may be reinstated if you fully stop the violation and take reasonable steps to correct its effects within 30 days after receiving the notice.
+
+Repeated, intentional, fraudulent, or uncured violations may result in termination without reinstatement.
+
+Rights that applicable law independently gives you are not terminated by this License.
+
+### 17. DISCLAIMER OF WARRANTY
+
+TO THE FULLEST EXTENT PERMITTED BY LAW, THE PROJECT IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, ACCURACY, SECURITY, RELIABILITY, OR COMPLIANCE WITH LAW.
+
+THE AUTHOR DOES NOT WARRANT THAT THE PROJECT IS ERROR-FREE, SAFE FOR ANY PARTICULAR APPLICATION, OR SUITABLE FOR MEDICAL, SAFETY-CRITICAL, INDUSTRIAL, ROBOTIC, SURVEILLANCE, OR OTHER HIGH-RISK USE.
+
+### 18. LIMITATION OF LIABILITY
+
+TO THE FULLEST EXTENT PERMITTED BY LAW, THE AUTHOR WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR FOR LOSS OF DATA, PROFITS, REVENUE, BUSINESS, PROPERTY, OR USE, ARISING FROM OR RELATED TO THE PROJECT OR THIS LICENSE.
+
+NOTHING IN THIS SECTION EXCLUDES LIABILITY THAT CANNOT LEGALLY BE EXCLUDED OR LIMITED.
+
+### 19. GOVERNING LAW
+
+To the extent legally permitted, this License is governed by the laws of the State of Washington, United States of America, without regard to conflict-of-law rules.
+
+Mandatory rights or protections that applicable law does not allow the parties to waive remain unaffected.
+
+### 20. SEVERABILITY
+
+If a court finds any provision of this License unenforceable, that provision will be enforced to the maximum extent permitted by law, and the remaining provisions will remain in effect.
+
+### 21. NO WAIVER
+
+Failure to enforce a provision of this License does not permanently waive the right to enforce that provision or any other provision later.
+
+### 22. ENTIRE LICENSE
+
+This LICENSE.txt contains the controlling license terms for the Author's original Project material unless the Author and a particular recipient enter into a separate written agreement.
+
+README.md and NOTICE.txt may summarize this License but do not override it.
+
+### 23. COMMERCIAL LICENSING CONTACT
+
+Commercial licensing inquiries may be sent to:
+
+Jesse Wyer
+[wyerjess888@gmail.com](mailto:wyerjess888@gmail.com)
+
+Do not assume that sending an inquiry grants permission. Commercial permission exists only when the Author gives it in a separate written agreement.
+
